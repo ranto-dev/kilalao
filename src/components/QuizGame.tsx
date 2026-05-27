@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FaArrowRotateLeft,
   FaHouse,
   FaRegCircleCheck,
   FaStopwatch,
-  FaUserGraduate,
+  FaArrowRight,
+  FaTrophy,
+  FaXmark,
 } from "react-icons/fa6";
-import { FaArrowCircleRight } from "react-icons/fa";
 
 interface Quiz {
   question: string;
@@ -30,24 +32,27 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
   const currentQuestion =
     quizzes.length > 0 ? quizzes[currentQuestionIndex] : null;
   const totalQuestions = quizzes.length;
+  const progressPercent =
+    totalQuestions > 0 ? (currentQuestionIndex / totalQuestions) * 100 : 0;
 
+  // Gestion du chronomètre intelligent
   useEffect(() => {
-    if (quizFinished || isAnswerSubmitted) {
+    if (quizFinished || isAnswerSubmitted || !currentQuestion) return;
+
+    if (questionTimeLeft === 0) {
+      // Force la soumission quand le temps est écoulé
+      setIsAnswerSubmitted(true);
       return;
     }
 
-    const timer = setTimeout(() => {
-      if (questionTimeLeft > 0) {
-        setQuestionTimeLeft(questionTimeLeft - 1);
-      } else {
-        handleNextQuestion();
-      }
+    const timer = setInterval(() => {
+      setQuestionTimeLeft((prev) => prev - 1);
     }, 1000);
 
-    return () => clearTimeout(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [questionTimeLeft, isAnswerSubmitted, quizFinished]);
+    return () => clearInterval(timer);
+  }, [questionTimeLeft, isAnswerSubmitted, quizFinished, currentQuestion]);
 
+  // Réinitialisation du chrono à chaque nouvelle question
   useEffect(() => {
     if (!quizFinished) {
       setQuestionTimeLeft(15);
@@ -64,10 +69,8 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
     if (selectedAnswer) {
       setIsAnswerSubmitted(true);
       if (selectedAnswer === currentQuestion?.response) {
-        setScore((prevScore) => prevScore + 1);
+        setScore((prev) => prev + 1);
       }
-    } else {
-      alert("Veuillez sélectionner une réponse.");
     }
   };
 
@@ -75,6 +78,7 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
     setIsAnswerSubmitted(false);
     setSelectedAnswer(null);
     const nextQuestionIndex = currentQuestionIndex + 1;
+
     if (nextQuestionIndex < totalQuestions) {
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
@@ -87,149 +91,211 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
     setSelectedAnswer(null);
     setScore(0);
     setIsAnswerSubmitted(false);
-    setQuestionTimeLeft(10);
+    setQuestionTimeLeft(15);
     setQuizFinished(false);
   };
 
-  const scoreMessage =
-    score >= totalQuestions / 2
-      ? "Félicitations, vous avez gagné ! 🥳"
-      : "Dommage, vous avez perdu. 😟";
-
+  // Écran Final (Quiz Terminé)
   if (quizFinished) {
+    const isWin = score >= totalQuestions / 2;
     return (
-      <div className="flex flex-col gap-4 lg:gap-10 bg-white rounded-4xl shadow-2xl p-10 w-[75%] lg:w-[40%] xl:w-[30%]">
-        <div>
-          <h2 className="text-2xl lg:text-4xl text-[#ed6c18]">Quiz terminé !</h2>
-        </div>
-        <div>
-          <p className="text-black text-sm">
-            Votre score final est de{" "}
-            <span className="font-bold text-green-400 underline">{score}</span>{" "}
-            / {totalQuestions}
+      <div className="w-full max-w-md mx-auto bg-white border border-slate-100 rounded-3xl p-8 shadow-2xl text-center select-none">
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 100 }}
+          className="flex flex-col items-center gap-6"
+        >
+          <div
+            className={`p-5 rounded-full border ${isWin ? "bg-amber-50 border-amber-200 text-amber-500" : "bg-rose-50 border-rose-200 text-rose-500"}`}
+          >
+            {isWin ? (
+              <FaTrophy className="text-5xl animate-bounce" />
+            ) : (
+              <FaXmark className="text-5xl" />
+            )}
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+              Quiz terminé !
+            </h2>
+            <p className="text-sm text-slate-500 font-medium">
+              Merci d'avoir joué à MadaKo'IS ?
+            </p>
+          </div>
+
+          <div className="w-full bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col gap-2">
+            <p className="text-sm font-semibold text-slate-600">
+              Votre score final
+            </p>
+            <p className="text-4xl font-black text-slate-900">
+              <span className={isWin ? "text-emerald-500" : "text-rose-500"}>
+                {score}
+              </span>
+              <span className="text-slate-300 mx-1">/</span>
+              <span className="text-slate-500 text-2xl">{totalQuestions}</span>
+            </p>
+          </div>
+
+          <p className="text-base font-bold text-slate-700 px-2">
+            {isWin
+              ? "Félicitations, vous connaissez bien la Grande Île ! 🥳"
+              : "Dommage, Madagascar a encore des secrets pour vous. 😟"}
           </p>
-          <p className="text-xl text-black mt-4">{scoreMessage}</p>
-        </div>
-        <div className="flex flex-col lg:flex-row gap-1 justify-center m-auto">
-          <button
-            onClick={handleRestart}
-            className="bg-green-500 rounded-2xl text-white text-sm lg:text-md px-3 py-2 lg:px-4 lg:py-3 flex gap-1 justify-center items-center"
-          >
-            <FaArrowRotateLeft />
-            Recommencer
-          </button>
-          <Link
-            className="bg-amber-600 rounded-2xl text-white text-sm lg:text-md px-3 py-2 lg:px-4 lg:py-3 flex gap-1 justify-center items-center"
-            to={"/"}
-          >
-            <FaHouse />
-            Menu principale
-          </Link>
-        </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full mt-2">
+            <button
+              onClick={handleRestart}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-emerald-500 hover:bg-emerald-600 active:scale-98 text-white font-bold text-sm rounded-xl transition-all shadow-md shadow-emerald-500/10"
+            >
+              <FaArrowRotateLeft className="text-xs" />
+              Recommencer
+            </button>
+            <Link
+              to="/"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-slate-900 hover:bg-slate-800 active:scale-98 text-white font-bold text-sm rounded-xl transition-all shadow-md shadow-slate-900/10"
+            >
+              <FaHouse className="text-xs" />
+              Menu principal
+            </Link>
+          </div>
+        </motion.div>
       </div>
     );
   }
 
   if (!currentQuestion) {
     return (
-      <p className="text-center text-white text-lg mt-10">
+      <div className="flex flex-col items-center justify-center min-h-[300px] text-slate-500 font-medium">
+        <div className="animate-spin rounded-full h-8 w-8 border-2 border-amber-500 border-t-transparent mb-4" />
         Chargement des questions...
-      </p>
+      </div>
     );
   }
 
+  // Écran du Jeu en cours
   return (
-    <div className="w-[75%] lg:w-[35%] xl: x-[30%] min-h-full m-auto bg-white p-4 rounded-4xl">
-      {/* Timer bock start */}
-      <div
-        className={`flex justify-end items-center text-lg ${
-          questionTimeLeft > 5
-            ? " text-green-500"
-            : "text-amber-700 animate-pulse"
-        } ${!isAnswerSubmitted ? "block" : "hidden"}`}
-      >
-        <FaStopwatch />
-        <span>
-          {questionTimeLeft < 10 ? "0" : null}
-          {questionTimeLeft}s
-        </span>
+    <div className="w-full max-w-xl mx-auto bg-white border border-slate-100 rounded-3xl shadow-2xl overflow-hidden select-none relative">
+      {/* Barre de progression supérieure */}
+      <div className="w-full h-1.5 bg-slate-100 relative">
+        <motion.div
+          className="absolute left-0 top-0 h-full bg-gradient-to-r from-amber-400 to-amber-600"
+          initial={{ width: 0 }}
+          animate={{ width: `${progressPercent}%` }}
+          transition={{ duration: 0.3 }}
+        />
       </div>
-      {/* Timer bock end */}
 
-      {/* Quiz bock start */}
-      <div className="flex flex-col gap-4">
-        <h2 className="text-center text-2xl text-amber-600">
-          {currentQuestionIndex + 1} / {totalQuestions}
-        </h2>
-        <p className="text-sm text-black text-center">
-          {currentQuestion.question}
-        </p>
+      <div className="p-6 md:p-8 flex flex-col gap-6">
+        {/* En-tête : Numéro de question & Timer */}
+        <div className="flex justify-between items-center border-b border-slate-100 pb-4">
+          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            Question {currentQuestionIndex + 1} sur {totalQuestions}
+          </span>
 
-        <div className="flex flex-col gap-2">
-          {currentQuestion.reponses_propose.map((answer, index) => (
-            <button
-              key={index}
-              onClick={() => handleAnswerSelection(answer)}
-              disabled={isAnswerSubmitted}
-              className={`
-                p-2 rounded-lg text-sm transition-colors duration-200 ease-in-out
-                ${
-                  isAnswerSubmitted && answer === currentQuestion.response
-                    ? "bg-green-500 hover:bg-green-600 text-white"
-                    : isAnswerSubmitted && selectedAnswer === answer
-                    ? "bg-amber-700 hover:bg-amber-800 text-white"
-                    : selectedAnswer === answer
-                    ? "bg-gray-800 hover:bg-gray-900 text-white"
-                    : "bg-white hover:scale-103  text-black border-1 border-black"
-                }
-                ${isAnswerSubmitted ? "cursor-not-allowed" : "cursor-pointer"}
-              `}
-            >
-              {answer}
-            </button>
-          ))}
+          <div
+            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-mono font-bold text-sm border transition-all ${
+              questionTimeLeft > 5
+                ? "bg-emerald-50 border-emerald-200 text-emerald-600"
+                : "bg-rose-50 border-rose-200 text-rose-600 animate-pulse"
+            }`}
+          >
+            <FaStopwatch
+              className={questionTimeLeft <= 5 ? "animate-spin" : ""}
+            />
+            <span>
+              {questionTimeLeft < 10
+                ? `0${questionTimeLeft}`
+                : questionTimeLeft}
+              s
+            </span>
+          </div>
         </div>
 
-        {!isAnswerSubmitted ? (
-          <button
-            onClick={handleSubmitAnswer}
-            disabled={!selectedAnswer}
-            className={`
-              w-full text-md font-medium rounded-lg transition-colors duration-200 flex gap-1 justify-center items-center p-2
-              ${
-                selectedAnswer
-                  ? "bg-[#ed6d18f2] hover:bg-[#ed6c18]"
-                  : "bg-[#b3510f] cursor-not-allowed"
+        {/* La Question */}
+        <div className="min-h-[70px] flex items-center justify-center">
+          <h3 className="text-lg md:text-xl font-bold text-slate-900 text-center leading-snug">
+            {currentQuestion.question}
+          </h3>
+        </div>
+
+        {/* Les Propositions de réponses */}
+        <div className="flex flex-col gap-3 w-full">
+          <AnimatePresence mode="wait">
+            {currentQuestion.reponses_propose.map((answer, index) => {
+              const isSelected = selectedAnswer === answer;
+              const isCorrectAnswer = answer === currentQuestion.response;
+
+              // Styles dynamiques sophistiqués pour le feedback
+              let btnStyle =
+                "bg-slate-50/50 border-slate-200 text-slate-800 hover:bg-slate-100 hover:border-slate-300";
+
+              if (isAnswerSubmitted) {
+                if (isCorrectAnswer) {
+                  btnStyle =
+                    "bg-emerald-500 border-emerald-500 text-white font-bold shadow-md shadow-emerald-500/20";
+                } else if (isSelected) {
+                  btnStyle =
+                    "bg-rose-500 border-rose-500 text-white font-bold shadow-md shadow-rose-500/20";
+                } else {
+                  btnStyle =
+                    "bg-slate-50 border-slate-100 text-slate-400 opacity-60";
+                }
+              } else if (isSelected) {
+                btnStyle =
+                  "bg-amber-600 border-amber-600 text-white font-bold shadow-lg shadow-amber-600/10";
               }
-            `}
-          >
-            <FaRegCircleCheck />
-            Valider
-          </button>
-        ) : (
-          <div className="flex gap-2 border-t-1 border-gray-800 mt-4 py-4 ">
-            <button className="w-full flex gap-1 justify-center items-center p-2 font-medium text-sm bg-gray-700 hover:bg-gray-800 rounded-full transition-colors duration-200">
-              <FaUserGraduate />
-              Consulter
+
+              return (
+                <motion.button
+                  key={index}
+                  whileHover={!isAnswerSubmitted ? { scale: 1.01, x: 4 } : {}}
+                  whileTap={!isAnswerSubmitted ? { scale: 0.99 } : {}}
+                  onClick={() => handleAnswerSelection(answer)}
+                  disabled={isAnswerSubmitted}
+                  className={`w-full text-left px-5 py-4 border rounded-2xl text-sm md:text-base font-medium transition-all duration-200 flex items-center justify-between ${btnStyle} ${
+                    isAnswerSubmitted ? "cursor-not-allowed" : "cursor-pointer"
+                  }`}
+                >
+                  <span>{answer}</span>
+                </motion.button>
+              );
+            })}
+          </AnimatePresence>
+        </div>
+
+        {/* Pied de Carte : Actions Soumettre / Suivante */}
+        <div className="mt-2 border-t border-slate-100 pt-5">
+          {!isAnswerSubmitted ? (
+            <button
+              onClick={handleSubmitAnswer}
+              disabled={!selectedAnswer}
+              className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 font-bold text-sm tracking-wide rounded-xl shadow-lg transition-all duration-200 active:scale-98 ${
+                selectedAnswer
+                  ? "bg-amber-600 hover:bg-amber-700 text-white shadow-amber-600/20"
+                  : "bg-slate-100 text-slate-400 cursor-not-allowed shadow-none"
+              }`}
+            >
+              <FaRegCircleCheck className="text-base" />
+              <span>Valider ma réponse</span>
             </button>
-            {currentQuestionIndex < totalQuestions - 1 ? (
-              <button
-                className="w-full flex gap-1 justify-center items-center p-2 font-medium text-sm bg-green-500 hover:bg-green-600 rounded-full transition-colors duration-200"
-                onClick={handleNextQuestion}
-              >
-                <FaArrowCircleRight />
-                Suivante
-              </button>
-            ) : (
-              <button
-                className="w-full py-2 text-md font-medium bg-green-500 hover:bg-green-600 rounded-lg transition-colors duration-200"
-                onClick={handleNextQuestion}
-              >
-                Voir le score
-              </button>
-            )}
-          </div>
-        )}
+          ) : (
+            <motion.button
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              onClick={handleNextQuestion}
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm tracking-wide rounded-xl shadow-lg shadow-slate-900/10 active:scale-98 transition-all duration-200"
+            >
+              <span>
+                {currentQuestionIndex < totalQuestions - 1
+                  ? "Question suivante"
+                  : "Découvrir mon score"}
+              </span>
+              <FaArrowRight className="text-xs" />
+            </motion.button>
+          )}
+        </div>
       </div>
     </div>
   );
