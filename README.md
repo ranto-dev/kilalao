@@ -6,7 +6,6 @@
 
 MadaKo'IS ? est une application web interactive conçue pour offrir une **expérience utilisateur exceptionnelle**. Mêlant éducation, humour et gameplay dynamique, le projet arbore un design moderne, fluide et entièrement réactif.
 
-
 ## 🎯 Objectifs du projet
 
 - **Valoriser la culture malgache** de manière ludique et accessible à tous.
@@ -100,7 +99,6 @@ Les questions du quizz sont structurées et modifiables via le fichier `question
 | `npm run build`   | Compile l'application pour la production (dossier `dist`)      |
 | `npm run preview` | Permet de tester localement le build de production             |
 | `npm run lint`    | Analyse le code pour détecter et corriger les erreurs de style |
-
 
 ## 🤝 Contribuer
 

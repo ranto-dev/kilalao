@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import QuizGame from "../../components/QuizGame";
-import "./quizz.css"
+import "./quizz.css";
 
 interface Quiz {
   question: string;
@@ -37,8 +37,8 @@ const QuizzBody: React.FC = () => {
   useEffect(() => {
     if (fetched.length > 0) {
       const shuffled = shuffleArray(fetched);
-      const fiveQuizzes = shuffled.slice(0, 5);
-      setSelectedQuizzes(fiveQuizzes);
+      const tenQuizzes = shuffled.slice(0, 10);
+      setSelectedQuizzes(tenQuizzes);
     }
   }, [fetched]);
 
