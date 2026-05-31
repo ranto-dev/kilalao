@@ -9,7 +9,7 @@ const Testimonials = () => {
       role: "Étudiant en Histoire",
       avatar:
         "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80", // Avatar moderne
-      rating: 5,
+      rating: 4,
       comment:
         "Une claque visuelle et culturelle ! Gasikarako réussit le pari de rendre l’apprentissage de notre histoire passionnant. Les animations et le chronomètre ajoutent un vrai défi.",
     },
@@ -29,7 +29,7 @@ const Testimonials = () => {
       role: "Diaspora (Paris, France)",
       avatar:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
-      rating: 5,
+      rating: 3,
       comment:
         "Vivre loin de la Grande Île n'est pas facile. Ce jeu me permet de rester connecté à mes racines et de tester mes connaissances de manière super fun. Misaotra bets !",
     },
@@ -96,10 +96,14 @@ const Testimonials = () => {
               <div className="relative z-10 flex flex-col gap-5">
                 {/* Étoiles de notation */}
                 <div className="flex items-center gap-1">
-                  {[...Array(user.rating)].map((_, i) => (
+                  {[...Array(5)].map((_, i) => (
                     <FaStar
                       key={i}
-                      className="text-amber-500 text-sm drop-shadow-[0_1px_2px_rgba(245,158,11,0.15)]"
+                      className={`text-sm transition-colors duration-200 ${
+                        i < user.rating
+                          ? "text-amber-500 drop-shadow-[0_1px_2px_rgba(245,158,11,0.15)]"
+                          : "text-slate-200"
+                      }`}
                     />
                   ))}
                 </div>
