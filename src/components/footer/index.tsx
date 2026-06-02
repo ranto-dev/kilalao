@@ -1,19 +1,18 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter, FaHeart } from "react-icons/fa6";
-import { footerLinks } from "../../data/footerLinks";
+import * as Icons from "react-icons/fa6";
+import { footerLinks, socialLinks } from "../../data/footerLinks";
 
 const Footer = () => {
   const currentYear = 2026;
 
-  const socialLinks = [
-    {
-      icon: <FaGithub />,
-      href: "https://github.com/ranto-dev",
-      label: "GitHub",
-    },
-    { icon: <FaLinkedin />, href: "#", label: "LinkedIn" },
-    { icon: <FaTwitter />, href: "#", label: "Twitter" },
-  ];
+  const DynamicIcon = ({ name }: { name: string }) => {
+    const IconComponent = (Icons as any)[name];
+    return IconComponent ? (
+      <IconComponent className="text-2xl text-amber-600" />
+    ) : (
+      <Icons.FaCode className="w-4 h-4" />
+    );
+  };
 
   return (
     <footer className="relative w-full bg-slate-50 border-t border-slate-100 overflow-hidden">
@@ -67,7 +66,9 @@ const Footer = () => {
                   whileHover={{ y: -4, scale: 1.05 }}
                   className="p-3 bg-white border border-slate-200/60 rounded-xl text-slate-600 hover:text-amber-600 hover:border-amber-200 shadow-sm hover:shadow-md transition-all duration-200"
                 >
-                  <span className="text-lg">{social.icon}</span>
+                  <span className="text-lg">
+                    <DynamicIcon name={social.icon} />
+                  </span>
                 </motion.a>
               ))}
             </div>
@@ -86,13 +87,13 @@ const Footer = () => {
               className="font-bold text-slate-800 hover:text-amber-600 transition-colors"
             >
               ranto andrianandraina
-            </a>
+            </a>{" "}
             .
           </p>
 
           <div className="inline-flex items-center gap-1.5 text-xs text-slate-400">
             <span>Fait avec</span>
-            <FaHeart className="text-rose-500 animate-pulse text-[10px]" />
+            <Icons.FaHeart className="text-rose-500 animate-pulse text-[10px]" />
             <span>pour la Grande Île</span>
           </div>
         </div>
