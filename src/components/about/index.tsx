@@ -1,31 +1,17 @@
-import { FaRegLightbulb, FaSplotch, FaGraduationCap } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { cardVariants, containerVariants } from "../../@types/variants";
+import * as Icons from "react-icons/fa6";
+import { appTarget } from "../../data/target";
 
 const About = () => {
-  const appTarget = [
-    {
-      id: "01",
-      icon: <FaRegLightbulb className="text-2xl text-amber-600" />,
-      title: "Découverte & Culture",
-      detail:
-        "Explorez la diversité des régions, les traditions ancestrales, la faune unique et les paysages de la Grande Île.",
-    },
-    {
-      id: "02",
-      icon: <FaGraduationCap className="text-2xl text-amber-600" />,
-      title: "Éducation & Savoir",
-      detail:
-        "Apprenez l'histoire et les faits marquants de Madagascar grâce à des questions rigoureusement documentées.",
-    },
-    {
-      id: "03",
-      icon: <FaSplotch className="text-2xl text-amber-600" />,
-      title: "Loisir & Divertissement",
-      detail:
-        "Profitez d'une expérience interactive rythmée par des mécaniques de jeu captivantes et des effets immersifs.",
-    },
-  ];
+  const DynamicIcon = ({ name }: { name: string }) => {
+    const IconComponent = (Icons as any)[name];
+    return IconComponent ? (
+      <IconComponent className="text-2xl text-amber-600" />
+    ) : (
+      <Icons.FaCode className="w-4 h-4" />
+    );
+  };
 
   return (
     <section
@@ -98,12 +84,10 @@ const About = () => {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className="group relative flex flex-col sm:flex-row items-start gap-6 p-6 md:p-8 bg-slate-50/50 hover:bg-amber-50/30 border border-slate-100 hover:border-amber-200/60 rounded-2xl transition-all duration-50 ease-in-out"
             >
-              <span className="absolute top-6 right-8 text-xs font-mono font-bold text-slate-300 group-hover:text-amber-300 transition-colors">
-                {card.id}
-              </span>
+              <span className="absolute top-6 right-8 text-xs font-mono font-bold text-slate-300 group-hover:text-amber-300 transition-colors"></span>
 
               <div className="flex-shrink-0 p-3 bg-white border border-slate-200/60 shadow-sm rounded-xl group-hover:border-amber-200 group-hover:shadow-md transition-all duration-300">
-                {card.icon}
+                <DynamicIcon name={card.icon} />
               </div>
 
               <div className="flex flex-col gap-1.5 pr-8">
