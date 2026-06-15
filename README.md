@@ -1,10 +1,10 @@
 ![screenshot](./gasikarako.png)
 
-# 🇲🇬 MadaKo'IS ? – Quizz Éducatif & Ludique
+# 🇲🇬 Gasikarako? – Quizz Éducatif & Ludique
 
 > 🎮 **Testez vos connaissances sur Madagascar à travers un quizz fun, visuel et immersif !**
 
-MadaKo'IS ? est une application web interactive conçue pour offrir une **expérience utilisateur exceptionnelle**. Mêlant éducation, humour et gameplay dynamique, le projet arbore un design moderne, fluide et entièrement réactif.
+Gasikarako? est une application web interactive conçue pour offrir une **expérience utilisateur exceptionnelle**. Mêlant éducation, humour et gameplay dynamique, le projet arbore un design moderne, fluide et entièrement réactif.
 
 ## 🎯 Objectifs du projet
 
