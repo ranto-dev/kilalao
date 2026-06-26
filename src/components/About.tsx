@@ -4,13 +4,12 @@ import * as Icons from "react-icons/fa6";
 import { appTarget } from "../data/target";
 
 const About = () => {
-  const DynamicIcon = ({ name }: { name: string }) => {
-    const IconComponent = (Icons as any)[name];
-    return IconComponent ? (
-      <IconComponent className="text-2xl text-amber-600" />
-    ) : (
-      <Icons.FaCode className="w-4 h-4" />
-    );
+  type IconName = keyof typeof Icons;
+
+  const DynamicIcon = ({ name }: { name: IconName }) => {
+    const IconComponent = Icons[name] ?? Icons.FaCode;
+
+    return <IconComponent className="text-2xl text-amber-600" />;
   };
 
   return (
@@ -87,7 +86,7 @@ const About = () => {
               <span className="absolute top-6 right-8 text-xs font-mono font-bold text-slate-300 group-hover:text-amber-300 transition-colors"></span>
 
               <div className="flex-shrink-0 p-3 bg-white border border-slate-200/60 shadow-sm rounded-xl group-hover:border-amber-200 group-hover:shadow-md transition-all duration-300">
-                <DynamicIcon name={card.icon} />
+                <DynamicIcon name={card.icon as IconName} />
               </div>
 
               <div className="flex flex-col gap-1.5 pr-8">

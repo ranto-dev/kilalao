@@ -5,13 +5,12 @@ import { footerLinks, socialLinks } from "../data/footerLinks";
 const Footer = () => {
   const currentYear = 2026;
 
-  const DynamicIcon = ({ name }: { name: string }) => {
-    const IconComponent = (Icons as any)[name];
-    return IconComponent ? (
-      <IconComponent className="text-2xl text-amber-600" />
-    ) : (
-      <Icons.FaCode className="w-4 h-4" />
-    );
+  type IconName = keyof typeof Icons;
+
+  const DynamicIcon = ({ name }: { name: IconName }) => {
+    const IconComponent = Icons[name] ?? Icons.FaCode;
+
+    return <IconComponent className="text-2xl text-amber-600" />;
   };
 
   return (
@@ -67,7 +66,7 @@ const Footer = () => {
                   className="p-3 bg-white border border-slate-200/60 rounded-xl text-slate-600 hover:text-amber-600 hover:border-amber-200 shadow-sm hover:shadow-md transition-all duration-200"
                 >
                   <span className="text-lg">
-                    <DynamicIcon name={social.icon} />
+                    <DynamicIcon name={social.icon as IconName} />
                   </span>
                 </motion.a>
               ))}
