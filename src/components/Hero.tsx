@@ -36,9 +36,10 @@ const Hero = () => {
 
         <motion.div variants={itemVariants} className="max-w-2xl">
           <p className="text-base md:text-lg text-slate-200 font-medium leading-relaxed drop-shadow-sm">
-            Évaluez vos connaissances et explorez la richesse de la Grande Île à
-            travers un quiz fun, instructif et immersif. Relevez le défi dès
-            maintenant !
+            Testez vos connaissances, découvrez des anecdotes fascinantes et
+            voyagez à travers la culture, l'histoire, la nature et les
+            traditions de la Grande Île grâce à une expérience ludique et
+            interactive.
           </p>
         </motion.div>
 
@@ -53,7 +54,7 @@ const Hero = () => {
             className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-sm tracking-wide rounded-full shadow-lg shadow-amber-600/30 hover:shadow-amber-500/40 transition-all duration-200"
           >
             <FaRegCirclePlay className="text-lg group-hover:rotate-12 transition-transform" />
-            <span>Démarrer une partie</span>
+            <span>Lancer le Quiz</span>
           </motion.a>
 
           <motion.a
@@ -67,7 +68,7 @@ const Hero = () => {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold text-sm tracking-wide rounded-full transition-all duration-200"
           >
             <FaCircleQuestion className="text-lg text-amber-400" />
-            <span>FAQ</span>
+            <span>En savoir plus</span>
           </motion.a>
         </motion.div>
       </motion.div>
