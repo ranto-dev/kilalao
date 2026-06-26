@@ -8,8 +8,8 @@ export default function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   setTimeout(() => {
-    setIsLoading(false)
-  }, 2000)
+    setIsLoading(false);
+  }, 1000);
 
   const router = createBrowserRouter([
     {
@@ -22,10 +22,10 @@ export default function App() {
     },
   ]);
 
-  if (isLoading) {
+  if (isLoading == false) {
     return (
-      <div className="w-full h-screen flex justify-center items-center  bg-amber-50">
-        <p className="text-5xl text-amber-800 flex justify-center items-center gap-2">
+      <div className="w-full h-screen flex justify-center items-center ">
+        <p className="text-5xl text-amber-600 flex justify-center items-center gap-2">
           <FaSpinner className="animate-spin" />
           <span className="text-lg">Loading</span>
         </p>
