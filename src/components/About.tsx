@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { cardVariants, containerVariants } from "../../@types/variants";
+import { cardVariants, containerVariants } from "../@types/variants";
 import * as Icons from "react-icons/fa6";
-import { appTarget } from "../../data/target";
+import { appTarget } from "../data/target";
 
 const About = () => {
   const DynamicIcon = ({ name }: { name: string }) => {

@@ -1,8 +1,8 @@
-import About from "../../components/about";
+import About from "../../components/About";
 import FAQ from "../../components/FAQ";
 import FeedbackForm from "../../components/FeedbackForm";
-import Footer from "../../components/footer";
-import Hero from "../../components/hero";
+import Footer from "../../components/Footer";
+import Hero from "../../components/Hero";
 import Testimonials from "../../components/Testimonials";
 
 export default function Home() {

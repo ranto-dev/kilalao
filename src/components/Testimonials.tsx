@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { FaStar, FaQuoteLeft } from "react-icons/fa6";
-import { cardVariants, containerVariants } from "../../@types/variants";
-import { reviews } from "../../data/testimonials";
+import { cardVariants, containerVariants } from "../@types/variants";
+import { reviews } from "../data/testimonials";
 
 const Testimonials = () => {
   return (

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import * as Icons from "react-icons/fa6";
-import { footerLinks, socialLinks } from "../../data/footerLinks";
+import { footerLinks, socialLinks } from "../data/footerLinks";
 
 const Footer = () => {
   const currentYear = 2026;

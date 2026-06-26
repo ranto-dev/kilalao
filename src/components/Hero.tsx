@@ -1,7 +1,7 @@
 import { FaRegCirclePlay, FaCircleQuestion } from "react-icons/fa6";
 import { motion } from "framer-motion";
-import baobabBg from "../../assets/alle_de_baobab.png";
-import { containerVariants, itemVariants } from "../../@types/variants";
+import baobabBg from "../assets/alle_de_baobab.png";
+import { containerVariants, itemVariants } from "../@types/variants";
 
 const Hero = () => {
   return (
