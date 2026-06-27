@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/landing";
-import QuizzBody from "./pages/quizgame";
+import Home from "./pages/Home";
+import QuizzBody from "./pages/QuizPage";
 import { useState } from "react";
 import Loading from "./components/Loading";
 

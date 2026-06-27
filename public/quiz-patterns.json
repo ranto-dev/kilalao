@@ -1,1457 +1,897 @@
 [
   {
+    "id": 1,
+    "category": "Géographie",
+    "difficulty": "Facile",
     "question": "Quelle est la capitale de Madagascar ?",
     "reponses_propose": [
-      "Mahajanga",
-      "Antsirabe",
-      "Fianarantsoa",
-      "Antananarivo"
-    ],
-    "response": "Antananarivo"
-  },
-  {
-    "question": "Quel est le nom de la cérémonie traditionnelle malgache de retournement des morts ?",
-    "reponses_propose": [
-      "Le Fitampoha",
-      "Le Famadihana",
-      "Le Sambatra",
-      "Le Hira Gasy"
-    ],
-    "response": "Le Famadihana"
-  },
-  {
-    "question": "Quel est l'animal emblématique de Madagascar, connu pour sa ressemblance avec un singe ?",
-    "reponses_propose": ["Le Fossa", "Le Maki", "Le Lémurien", "Le Sifaka"],
-    "response": "Le Lémurien"
-  },
-  {
-    "question": "Quel est l'arbre emblématique de Madagascar, souvent appelé 'l'arbre bouteille' ?",
-    "reponses_propose": [
-      "Le Jacaranda",
-      "Le Baobab",
-      "Le Tamarin",
-      "Le Palissandre"
-    ],
-    "response": "Le Baobab"
-  },
-  {
-    "question": "Quel nom porte la plus longue rue commerçante d'Antananarivo ?",
-    "reponses_propose": [
-      "Avenue de l'Indépendance",
-      "Rue Ratsimamanga",
-      "Avenue de la Liberté",
-      "Rue de la Victoire"
-    ],
-    "response": "Avenue de l'Indépendance"
-  },
-  {
-    "question": "Quel est le plat national malgache à base de feuilles de manioc pilées et de viande ?",
-    "reponses_propose": ["Le Romazava", "Le Lasary", "Le Koba", "Le Ravitoto"],
-    "response": "Le Ravitoto"
-  },
-  {
-    "question": "Quelle est la monnaie de Madagascar ?",
-    "reponses_propose": [
-      "Le Franc malgache",
-      "L'Ariary",
-      "Le Malagasy",
-      "Le Kopek"
-    ],
-    "response": "L'Ariary"
-  },
-  {
-    "question": "Quel est l'instrument de musique traditionnel le plus connu, une cithare tubulaire ?",
-    "reponses_propose": ["Le Valiha", "Le Djembé", "Le Kabosy", "Le Sodina"],
-    "response": "Le Valiha"
-  },
-  {
-    "question": "Quel est le nom du célèbre parc national abritant les 'tsingy', des formations rocheuses pointues ?",
-    "reponses_propose": [
-      "Andasibe-Mantadia",
-      "Isalo",
-      "Ranomafana",
-      "Tsingy de Bemaraha"
-    ],
-    "response": "Tsingy de Bemaraha"
-  },
-  {
-    "question": "Quel est l'océan qui borde l'est de Madagascar ?",
-    "reponses_propose": [
-      "Océan Pacifique",
-      "Océan Atlantique",
-      "Océan Indien",
-      "Océan Austral"
-    ],
-    "response": "Océan Indien"
-  },
-  {
-    "question": "Quel est le nom du plus grand lac de Madagascar ?",
-    "reponses_propose": [
-      "Lac Anosy",
-      "Lac Alaotra",
-      "Lac Itasy",
-      "Lac Mantasoa"
-    ],
-    "response": "Lac Alaotra"
-  },
-  {
-    "question": "Quelle est la principale religion à Madagascar ?",
-    "reponses_propose": ["Christianisme", "Islam", "Animisme", "Hindouisme"],
-    "response": "Christianisme"
-  },
-  {
-    "question": "Quel est le nom de l'ancien palais royal situé sur une colline à Antananarivo ?",
-    "reponses_propose": [
-      "Le Rova",
-      "Le Palais d'Andafiavaratra",
-      "Le Manjakamiadana",
-      "Le Palais d'Ambohimanga"
-    ],
-    "response": "Le Rova"
-  },
-  {
-    "question": "Quel est le nom du festival qui célèbre la circoncision des garçons chez les Betsimisaraka ?",
-    "reponses_propose": [
-      "Le Sambatra",
-      "Le Tsapiky",
-      "Le Fitampoha",
-      "Le Hira Gasy"
-    ],
-    "response": "Le Sambatra"
-  },
-  {
-    "question": "Quel type de cuisine est le 'Koba', une pâtisserie traditionnelle malgache ?",
-    "reponses_propose": [
-      "Un plat de viande",
-      "Une salade de riz",
-      "Une pâtisserie de banane et de riz",
-      "Un plat de légumes"
-    ],
-    "response": "Une pâtisserie de banane et de riz"
-  },
-  {
-    "question": "Quel est l'animal, qui n'existe qu'à Madagascar, qui a une longue langue pour manger les insectes ?",
-    "reponses_propose": ["Le Tenrec", "Le Fossa", "L'Aye-Aye", "Le Sifaka"],
-    "response": "L'Aye-Aye"
-  },
-  {
-    "question": "Quel est le nom de la principale chaîne de montagnes de Madagascar ?",
-    "reponses_propose": [
-      "L'Andringitra",
-      "Le Massif de l'Ankaratra",
-      "Les Hautes Terres",
-      "La chaîne d'Anosy"
-    ],
-    "response": "Le Massif de l'Ankaratra"
-  },
-  {
-    "question": "Quel produit est surnommé 'l'or noir' de Madagascar ?",
-    "reponses_propose": ["La vanille", "Le poivre", "Le cacao", "Le girofle"],
-    "response": "La vanille"
-  },
-  {
-    "question": "Qui a unifié Madagascar au 19ème siècle ?",
-    "reponses_propose": [
-      "Radama Ier",
-      "Rainilaiarivony",
-      "Ranavalona Ière",
-      "Andrianampoinimerina"
-    ],
-    "response": "Andrianampoinimerina"
-  },
-  {
-    "question": "Quel nom porte l'ensemble des tombeaux royaux et du village sacré des rois merina ?",
-    "reponses_propose": [
-      "Le Rova",
-      "Ambohimanga",
-      "Andafiavaratra",
-      "Le Manjakamiadana"
-    ],
-    "response": "Ambohimanga"
-  },
-  {
-    "question": "Quel est le nom du grand lac dans la région d'Analamanga ?",
-    "reponses_propose": [
-      "Lac Itasy",
-      "Lac Alaotra",
-      "Lac Anosy",
-      "Lac Mantasoa"
-    ],
-    "response": "Lac Anosy"
-  },
-  {
-    "question": "Le 'Vary amin'anana' est une soupe malgache. Que signifie 'vary' ?",
-    "reponses_propose": ["Viande", "Poisson", "Riz", "Légumes"],
-    "response": "Riz"
-  },
-  {
-    "question": "Quel est le nom de la danse traditionnelle du sud de Madagascar ?",
-    "reponses_propose": [
-      "Le Salegy",
-      "Le Tsapiky",
-      "Le Hira Gasy",
-      "Le Kwassa Kwassa"
-    ],
-    "response": "Le Tsapiky"
-  },
-  {
-    "question": "Quel est le nom de la ville connue comme la 'ville d'eau' en raison de ses sources thermales ?",
-    "reponses_propose": ["Antsirabe", "Fianarantsoa", "Mahajanga", "Toamasina"],
-    "response": "Antsirabe"
-  },
-  {
-    "question": "Quel est le nom de la forêt sèche épineuse, unique à Madagascar ?",
-    "reponses_propose": [
-      "La Forêt de l'Est",
-      "La Forêt d'Analamazaotra",
-      "La Forêt du Sud",
-      "La Forêt d'Andohahela"
-    ],
-    "response": "La Forêt d'Andohahela"
-  },
-  {
-    "question": "Comment appelle-t-on les pirogues traditionnelles à Madagascar ?",
-    "reponses_propose": [
-      "Les boutres",
-      "Les pirogues",
-      "Les laka",
-      "Les vazimba"
-    ],
-    "response": "Les laka"
-  },
-  {
-    "question": "Quel est le nom du plus grand volcan de Madagascar ?",
-    "reponses_propose": [
-      "Le Mont Maromokotro",
-      "Le Mont Andringitra",
-      "Le Massif du Tsaratanana",
-      "Le Mont de la France"
-    ],
-    "response": "Le Mont Maromokotro"
-  },
-  {
-    "question": "Quel est le surnom de la ville de Mahajanga ?",
-    "reponses_propose": [
-      "La ville des fleurs",
-      "La ville d'eau",
-      "La ville des arbres",
-      "La ville des femmes"
-    ],
-    "response": "La ville des fleurs"
-  },
-  {
-    "question": "Quel est le nom du grand parc national du sud, célèbre pour ses paysages de grès et ses canyons ?",
-    "reponses_propose": ["Andasibe", "Isalo", "Ranomafana", "Masola"],
-    "response": "Isalo"
-  },
-  {
-    "question": "Quel est le nom du peuple malgache qui vit dans les Hautes Terres centrales ?",
-    "reponses_propose": [
-      "Les Sakalava",
-      "Les Merina",
-      "Les Betsileo",
-      "Les Antandroy"
-    ],
-    "response": "Les Merina"
-  },
-  {
-    "question": "Quel est le nom de la célèbre île touristique au nord-ouest de Madagascar ?",
-    "reponses_propose": ["Sainte-Marie", "Nosy Be", "Réunion", "Maurice"],
-    "response": "Nosy Be"
-  },
-  {
-    "question": "Quel est le nom du célèbre musicien malgache, roi du Salegy ?",
-    "reponses_propose": ["Jaojoby", "Rossy", "Dama", "Tsimahora"],
-    "response": "Jaojoby"
-  },
-  {
-    "question": "Quelle était la dynastie régnante à Madagascar avant la colonisation française ?",
-    "reponses_propose": [
-      "La dynastie Andriana",
-      "La dynastie Zafindravola",
-      "La dynastie Merina",
-      "La dynastie Sakalava"
-    ],
-    "response": "La dynastie Merina"
-  },
-  {
-    "question": "Quel est le nom du célèbre marché d'Antananarivo, où l'on trouve de tout ?",
-    "reponses_propose": [
-      "Le marché d'Analakely",
-      "Le marché de La Digue",
-      "Le marché de Mahajanga",
-      "Le marché d'Isotry"
-    ],
-    "response": "Le marché de La Digue"
-  },
-  {
-    "question": "Quel est le nom du lézard endémique de Madagascar, connu pour sa couleur vive ?",
-    "reponses_propose": ["Le Gecko", "Le Caméléon", "Le Lémurien", "Le Fossa"],
-    "response": "Le Caméléon"
-  },
-  {
-    "question": "Quel est le nom du grand lac de cratère dans la région du Vakinankaratra ?",
-    "reponses_propose": [
-      "Lac Itasy",
-      "Lac Andraikiba",
-      "Lac Mantasoa",
-      "Lac Anosy"
-    ],
-    "response": "Lac Andraikiba"
-  },
-  {
-    "question": "Quel est le nom de la forêt primaire de la côte est, connue pour ses lémuriens et ses orchidées ?",
-    "reponses_propose": ["Isalo", "Andasibe-Mantadia", "Ranomafana", "Masoala"],
-    "response": "Andasibe-Mantadia"
-  },
-  {
-    "question": "Quel est le plat malgache à base de riz cuit à la vapeur avec des légumes et de la viande ?",
-    "reponses_propose": [
-      "Le Romazava",
-      "Le Lasary",
-      "Le Vary amin'anana",
-      "Le Ravitoto"
-    ],
-    "response": "Le Vary amin'anana"
-  },
-  {
-    "question": "Quel nom porte la route nationale qui relie Antananarivo à Toliara ?",
-    "reponses_propose": ["La RN 2", "La RN 4", "La RN 7", "La RN 1"],
-    "response": "La RN 7"
-  },
-  {
-    "question": "Quel est le nom du peuple malgache qui a la réputation d'être de grands marins ?",
-    "reponses_propose": [
-      "Les Merina",
-      "Les Sakalava",
-      "Les Antandroy",
-      "Les Betsileo"
-    ],
-    "response": "Les Sakalava"
-  },
-  {
-    "question": "Quel est le nom du plus grand parc national de Madagascar, situé au nord-est ?",
-    "reponses_propose": ["Isalo", "Ranomafana", "Masoala", "Andasibe"],
-    "response": "Masoala"
-  },
-  {
-    "question": "Quel est le nom du dessert malgache à base de riz gluant et de sucre de canne ?",
-    "reponses_propose": ["Le Koba", "Le Mofo", "Le Menakely", "Le Mokary"],
-    "response": "Le Koba"
-  },
-  {
-    "question": "Quel est le nom de l'art martial traditionnel malgache ?",
-    "reponses_propose": ["Le Mori", "Le Kung Fu", "Le Karate", "Le Judo"],
-    "response": "Le Mori"
-  },
-  {
-    "question": "Quel est le nom de la ville malgache connue pour son immense port et ses remparts ?",
-    "reponses_propose": [
       "Toamasina",
-      "Antsiranana",
       "Mahajanga",
+      "Antananarivo",
       "Fianarantsoa"
     ],
-    "response": "Antsiranana"
+    "response": "Antananarivo",
+    "explanation": "Antananarivo est la capitale politique, économique et culturelle de Madagascar.",
+    "source": {
+      "title": "Antananarivo — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Antananarivo"
+    }
   },
   {
-    "question": "Quel est le nom du musicien malgache, figure emblématique du Hira Gasy ?",
-    "reponses_propose": ["Rossy", "Jaojoby", "Dama", "Tsimahora"],
-    "response": "Dama"
+    "id": 2,
+    "category": "Faune",
+    "difficulty": "Facile",
+    "question": "Quel animal est le symbole le plus emblématique de Madagascar ?",
+    "reponses_propose": ["Le zèbre", "Le lémurien", "Le kangourou", "Le panda"],
+    "response": "Le lémurien",
+    "explanation": "Les lémuriens sont endémiques de Madagascar et représentent l'un des symboles du pays.",
+    "source": {
+      "title": "Lemur — Britannica",
+      "url": "https://www.britannica.com/animal/lemur"
+    }
   },
   {
-    "question": "Quel nom porte la tradition malgache de ne pas mentionner le nom de sa belle-mère ?",
-    "reponses_propose": ["Le Fady", "Le Fihavanana", "Le Tsiny", "Le Dina"],
-    "response": "Le Fady"
+    "id": 3,
+    "category": "Nature",
+    "difficulty": "Facile",
+    "question": "Quel arbre est surnommé 'l'arbre de vie' à Madagascar ?",
+    "reponses_propose": ["Le Baobab", "Le Pin", "Le Manguier", "Le Palmier"],
+    "response": "Le Baobab",
+    "explanation": "Le baobab est célèbre pour son tronc imposant et sa longévité exceptionnelle.",
+    "source": {
+      "title": "Baobab — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Adansonia"
+    }
   },
   {
-    "question": "Quel est le nom du plus long fleuve de Madagascar ?",
+    "id": 4,
+    "category": "Culture",
+    "difficulty": "Facile",
+    "question": "Comment appelle-t-on la langue officielle la plus parlée à Madagascar ?",
+    "reponses_propose": ["Le Swahili", "Le Malagasy", "Le Wolof", "Le Zoulou"],
+    "response": "Le Malagasy",
+    "explanation": "Le malagasy est la langue nationale et l'une des langues officielles de Madagascar.",
+    "source": {
+      "title": "Langue malgache — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Malgache"
+    }
+  },
+  {
+    "id": 5,
+    "category": "Nature",
+    "difficulty": "Facile",
+    "question": "Quel est l'emblème végétal de Madagascar souvent appelé 'arbre du voyageur' ?",
     "reponses_propose": [
-      "Le Mangoky",
-      "Le Tsiribihina",
-      "Le Betsiboka",
-      "Le Mananara"
-    ],
-    "response": "Le Mangoky"
-  },
-  {
-    "question": "Quel est le nom de la plante, endémique de Madagascar, utilisée pour fabriquer la boisson 'betasitry' ?",
-    "reponses_propose": [
-      "Le Ravenala",
       "Le Baobab",
-      "Le Palmier",
-      "L'Aloe vera"
-    ],
-    "response": "Le Palmier"
-  },
-  {
-    "question": "Quel est le surnom de la ville de Fianarantsoa ?",
-    "reponses_propose": [
-      "La ville des fleurs",
-      "La ville d'eau",
-      "La ville des 1000",
-      "La ville des roches"
-    ],
-    "response": "La ville des roches"
-  },
-  {
-    "question": "Quel est le nom du parc national où l'on peut trouver le lémurien sifaka ?",
-    "reponses_propose": ["Andasibe", "Isalo", "Ranomafana", "Kirindy"],
-    "response": "Kirindy"
-  },
-  {
-    "question": "Quel est le nom du grand marché d'Antananarivo, où l'on trouve de l'artisanat ?",
-    "reponses_propose": [
-      "Le marché d'Andravoahangy",
-      "Le marché de La Digue",
-      "Le marché d'Analakely",
-      "Le marché d'Isotry"
-    ],
-    "response": "Le marché d'Andravoahangy"
-  },
-  {
-    "question": "Quel est le nom de la danse traditionnelle malgache où les danseurs imitent les mouvements des animaux ?",
-    "reponses_propose": [
-      "Le Tsapiky",
-      "Le Salegy",
-      "Le Hira Gasy",
-      "Le Vakodrazana"
-    ],
-    "response": "Le Vakodrazana"
-  },
-  {
-    "question": "Quel est le nom du plat malgache à base de viande de zébu séchée et salée ?",
-    "reponses_propose": [
-      "Le Romazava",
-      "Le Kitoza",
-      "Le Lasary",
-      "Le Ravitoto"
-    ],
-    "response": "Le Kitoza"
-  },
-  {
-    "question": "Quel est le nom de la baie du nord de Madagascar, connue pour ses plages de sable blanc ?",
-    "reponses_propose": [
-      "La Baie des Bengalis",
-      "La Baie des Dunes",
-      "La Baie de Sakalava",
-      "La Baie des Russes"
-    ],
-    "response": "La Baie de Sakalava"
-  },
-  {
-    "question": "Quel est le nom du célèbre musicien malgache, roi du Salegy ?",
-    "reponses_propose": ["Jaojoby", "Rossy", "Dama", "Tsimahora"],
-    "response": "Jaojoby"
-  },
-  {
-    "question": "Quelle était la capitale du royaume Merina avant Antananarivo ?",
-    "reponses_propose": [
-      "Ambohimanga",
-      "Antsirabe",
-      "Fianarantsoa",
-      "Mahajanga"
-    ],
-    "response": "Ambohimanga"
-  },
-  {
-    "question": "Quel est le nom de la plante, endémique de Madagascar, utilisée pour fabriquer la boisson 'betasitry' ?",
-    "reponses_propose": [
       "Le Ravenala",
-      "Le Baobab",
       "Le Palmier",
-      "L'Aloe vera"
-    ],
-    "response": "Le Palmier"
-  },
-  {
-    "question": "Quel est le surnom de la ville de Fianarantsoa ?",
-    "reponses_propose": [
-      "La ville des fleurs",
-      "La ville d'eau",
-      "La ville des 1000",
-      "La ville des roches"
-    ],
-    "response": "La ville des roches"
-  },
-  {
-    "question": "Quel est le nom du parc national où l'on peut trouver le lémurien sifaka ?",
-    "reponses_propose": ["Andasibe", "Isalo", "Ranomafana", "Kirindy"],
-    "response": "Kirindy"
-  },
-  {
-    "question": "Quel est le nom du grand marché d'Antananarivo, où l'on trouve de l'artisanat ?",
-    "reponses_propose": [
-      "Le marché d'Andravoahangy",
-      "Le marché de La Digue",
-      "Le marché d'Analakely",
-      "Le marché d'Isotry"
-    ],
-    "response": "Le marché d'Andravoahangy"
-  },
-  {
-    "question": "Quel est le nom de la danse traditionnelle malgache où les danseurs imitent les mouvements des animaux ?",
-    "reponses_propose": [
-      "Le Tsapiky",
-      "Le Salegy",
-      "Le Hira Gasy",
-      "Le Vakodrazana"
-    ],
-    "response": "Le Vakodrazana"
-  },
-  {
-    "question": "Quel est le nom du plat malgache à base de viande de zébu séchée et salée ?",
-    "reponses_propose": [
-      "Le Romazava",
-      "Le Kitoza",
-      "Le Lasary",
-      "Le Ravitoto"
-    ],
-    "response": "Le Kitoza"
-  },
-  {
-    "question": "Quel est le nom de la baie du nord de Madagascar, connue pour ses plages de sable blanc ?",
-    "reponses_propose": [
-      "La Baie des Bengalis",
-      "La Baie des Dunes",
-      "La Baie de Sakalava",
-      "La Baie des Russes"
-    ],
-    "response": "La Baie de Sakalava"
-  },
-  {
-    "question": "Quel est le nom du célèbre musicien malgache, roi du Salegy ?",
-    "reponses_propose": ["Jaojoby", "Rossy", "Dama", "Tsimahora"],
-    "response": "Jaojoby"
-  },
-  {
-    "question": "Quelle était la capitale du royaume Merina avant Antananarivo ?",
-    "reponses_propose": [
-      "Ambohimanga",
-      "Antsirabe",
-      "Fianarantsoa",
-      "Mahajanga"
-    ],
-    "response": "Ambohimanga"
-  },
-  {
-    "question": "Quel nom porte la musique traditionnelle des Hautes Terres, souvent jouée lors des fêtes ?",
-    "reponses_propose": [
-      "Le Hira Gasy",
-      "Le Salegy",
-      "Le Tsapiky",
-      "Le Batrelaka"
-    ],
-    "response": "Le Hira Gasy"
-  },
-  {
-    "question": "Quel est le nom de la lagune dans la région de Manakara ?",
-    "reponses_propose": [
-      "Le Canal des Pangalanes",
-      "La lagune de Vohipeno",
-      "La lagune d'Anosy",
-      "Le lac Andraikiba"
-    ],
-    "response": "Le Canal des Pangalanes"
-  },
-  {
-    "question": "Quel est le nom de la plante, endémique de Madagascar, utilisée pour fabriquer la boisson 'betasitry' ?",
-    "reponses_propose": [
-      "Le Ravenala",
-      "Le Baobab",
-      "Le Palmier",
-      "L'Aloe vera"
-    ],
-    "response": "Le Palmier"
-  },
-  {
-    "question": "Quel est le surnom de la ville de Fianarantsoa ?",
-    "reponses_propose": [
-      "La ville des fleurs",
-      "La ville d'eau",
-      "La ville des 1000",
-      "La ville des roches"
-    ],
-    "response": "La ville des roches"
-  },
-  {
-    "question": "Quel est le nom du parc national où l'on peut trouver le lémurien sifaka ?",
-    "reponses_propose": ["Andasibe", "Isalo", "Ranomafana", "Kirindy"],
-    "response": "Kirindy"
-  },
-  {
-    "question": "Quel est le nom du grand marché d'Antananarivo, où l'on trouve de l'artisanat ?",
-    "reponses_propose": [
-      "Le marché d'Andravoahangy",
-      "Le marché de La Digue",
-      "Le marché d'Analakely",
-      "Le marché d'Isotry"
-    ],
-    "response": "Le marché d'Andravoahangy"
-  },
-  {
-    "question": "Quel est le nom de la danse traditionnelle malgache où les danseurs imitent les mouvements des animaux ?",
-    "reponses_propose": [
-      "Le Tsapiky",
-      "Le Salegy",
-      "Le Hira Gasy",
-      "Le Vakodrazana"
-    ],
-    "response": "Le Vakodrazana"
-  },
-  {
-    "question": "Quel est le nom du plat malgache à base de viande de zébu séchée et salée ?",
-    "reponses_propose": [
-      "Le Romazava",
-      "Le Kitoza",
-      "Le Lasary",
-      "Le Ravitoto"
-    ],
-    "response": "Le Kitoza"
-  },
-  {
-    "question": "Quel est le nom de la baie du nord de Madagascar, connue pour ses plages de sable blanc ?",
-    "reponses_propose": [
-      "La Baie des Bengalis",
-      "La Baie des Dunes",
-      "La Baie de Sakalava",
-      "La Baie des Russes"
-    ],
-    "response": "La Baie de Sakalava"
-  },
-  {
-    "question": "Quel est le nom du célèbre musicien malgache, roi du Salegy ?",
-    "reponses_propose": ["Jaojoby", "Rossy", "Dama", "Tsimahora"],
-    "response": "Jaojoby"
-  },
-  {
-    "question": "Quelle était la capitale du royaume Merina avant Antananarivo ?",
-    "reponses_propose": [
-      "Ambohimanga",
-      "Antsirabe",
-      "Fianarantsoa",
-      "Mahajanga"
-    ],
-    "response": "Ambohimanga"
-  },
-  {
-    "question": "Quel nom porte la musique traditionnelle des Hautes Terres, souvent jouée lors des fêtes ?",
-    "reponses_propose": [
-      "Le Hira Gasy",
-      "Le Salegy",
-      "Le Tsapiky",
-      "Le Batrelaka"
-    ],
-    "response": "Le Hira Gasy"
-  },
-  {
-    "question": "Quel est le nom de la lagune dans la région de Manakara ?",
-    "reponses_propose": [
-      "Le Canal des Pangalanes",
-      "La lagune de Vohipeno",
-      "La lagune d'Anosy",
-      "Le lac Andraikiba"
-    ],
-    "response": "Le Canal des Pangalanes"
-  },
-  {
-    "question": "Quel est le nom de la plante, endémique de Madagascar, utilisée pour fabriquer la boisson 'betasitry' ?",
-    "reponses_propose": [
-      "Le Ravenala",
-      "Le Baobab",
-      "Le Palmier",
-      "L'Aloe vera"
-    ],
-    "response": "Le Palmier"
-  },
-  {
-    "question": "Quel est le surnom de la ville de Fianarantsoa ?",
-    "reponses_propose": [
-      "La ville des fleurs",
-      "La ville d'eau",
-      "La ville des 1000",
-      "La ville des roches"
-    ],
-    "response": "La ville des roches"
-  },
-  {
-    "question": "Quel est le nom du parc national où l'on peut trouver le lémurien sifaka ?",
-    "reponses_propose": ["Andasibe", "Isalo", "Ranomafana", "Kirindy"],
-    "response": "Kirindy"
-  },
-  {
-    "question": "Quel est le nom du grand marché d'Antananarivo, où l'on trouve de l'artisanat ?",
-    "reponses_propose": [
-      "Le marché d'Andravoahangy",
-      "Le marché de La Digue",
-      "Le marché d'Analakely",
-      "Le marché d'Isotry"
-    ],
-    "response": "Le marché d'Andravoahangy"
-  },
-  {
-    "question": "Quel est le nom de la danse traditionnelle malgache où les danseurs imitent les mouvements des animaux ?",
-    "reponses_propose": [
-      "Le Tsapiky",
-      "Le Salegy",
-      "Le Hira Gasy",
-      "Le Vakodrazana"
-    ],
-    "response": "Le Vakodrazana"
-  },
-  {
-    "question": "Quel est le nom du plat malgache à base de viande de zébu séchée et salée ?",
-    "reponses_propose": [
-      "Le Romazava",
-      "Le Kitoza",
-      "Le Lasary",
-      "Le Ravitoto"
-    ],
-    "response": "Le Kitoza"
-  },
-  {
-    "question": "Quel est le nom de la baie du nord de Madagascar, connue pour ses plages de sable blanc ?",
-    "reponses_propose": [
-      "La Baie des Bengalis",
-      "La Baie des Dunes",
-      "La Baie de Sakalava",
-      "La Baie des Russes"
-    ],
-    "response": "La Baie de Sakalava"
-  },
-  {
-    "question": "Quel est le nom du célèbre musicien malgache, roi du Salegy ?",
-    "reponses_propose": ["Jaojoby", "Rossy", "Dama", "Tsimahora"],
-    "response": "Jaojoby"
-  },
-  {
-    "question": "Quelle était la capitale du royaume Merina avant Antananarivo ?",
-    "reponses_propose": [
-      "Ambohimanga",
-      "Antsirabe",
-      "Fianarantsoa",
-      "Mahajanga"
-    ],
-    "response": "Ambohimanga"
-  },
-  {
-    "question": "Quel nom porte la musique traditionnelle des Hautes Terres, souvent jouée lors des fêtes ?",
-    "reponses_propose": [
-      "Le Hira Gasy",
-      "Le Salegy",
-      "Le Tsapiky",
-      "Le Batrelaka"
-    ],
-    "response": "Le Hira Gasy"
-  },
-  {
-    "question": "Quel est le nom de la lagune dans la région de Manakara ?",
-    "reponses_propose": [
-      "Le Canal des Pangalanes",
-      "La lagune de Vohipeno",
-      "La lagune d'Anosy",
-      "Le lac Andraikiba"
-    ],
-    "response": "Le Canal des Pangalanes"
-  },
-  {
-    "question": "Quel est le nom de la plante, endémique de Madagascar, utilisée pour fabriquer la boisson 'betasitry' ?",
-    "reponses_propose": [
-      "Le Ravenala",
-      "Le Baobab",
-      "Le Palmier",
-      "L'Aloe vera"
-    ],
-    "response": "Le Palmier"
-  },
-  {
-    "question": "Quel est le surnom de la ville de Fianarantsoa ?",
-    "reponses_propose": [
-      "La ville des fleurs",
-      "La ville d'eau",
-      "La ville des 1000",
-      "La ville des roches"
-    ],
-    "response": "La ville des roches"
-  },
-  {
-    "question": "Quel est le nom du parc national où l'on peut trouver le lémurien sifaka ?",
-    "reponses_propose": ["Andasibe", "Isalo", "Ranomafana", "Kirindy"],
-    "response": "Kirindy"
-  },
-  {
-    "question": "Quel est le nom du grand marché d'Antananarivo, où l'on trouve de l'artisanat ?",
-    "reponses_propose": [
-      "Le marché d'Andravoahangy",
-      "Le marché de La Digue",
-      "Le marché d'Analakely",
-      "Le marché d'Isotry"
-    ],
-    "response": "Le marché d'Andravoahangy"
-  },
-  {
-    "question": "Quel est le nom de la danse traditionnelle malgache où les danseurs imitent les mouvements des animaux ?",
-    "reponses_propose": [
-      "Le Tsapiky",
-      "Le Salegy",
-      "Le Hira Gasy",
-      "Le Vakodrazana"
-    ],
-    "response": "Le Vakodrazana"
-  },
-  {
-    "question": "Quel est le nom du plat malgache à base de viande de zébu séchée et salée ?",
-    "reponses_propose": [
-      "Le Romazava",
-      "Le Kitoza",
-      "Le Lasary",
-      "Le Ravitoto"
-    ],
-    "response": "Le Kitoza"
-  },
-  {
-    "question": "Quel est le nom de la baie du nord de Madagascar, connue pour ses plages de sable blanc ?",
-    "reponses_propose": [
-      "La Baie des Bengalis",
-      "La Baie des Dunes",
-      "La Baie de Sakalava",
-      "La Baie des Russes"
-    ],
-    "response": "La Baie de Sakalava"
-  },
-  {
-    "question": "Quel est le nom du célèbre musicien malgache, roi du Salegy ?",
-    "reponses_propose": ["Jaojoby", "Rossy", "Dama", "Tsimahora"],
-    "response": "Jaojoby"
-  },
-  {
-    "question": "Quelle était la capitale du royaume Merina avant Antananarivo ?",
-    "reponses_propose": [
-      "Ambohimanga",
-      "Antsirabe",
-      "Fianarantsoa",
-      "Mahajanga"
-    ],
-    "response": "Ambohimanga"
-  },
-  {
-    "question": "Quel nom porte la musique traditionnelle des Hautes Terres, souvent jouée lors des fêtes ?",
-    "reponses_propose": [
-      "Le Hira Gasy",
-      "Le Salegy",
-      "Le Tsapiky",
-      "Le Batrelaka"
-    ],
-    "response": "Le Hira Gasy"
-  },
-  {
-    "question": "Quel est le nom de la lagune dans la région de Manakara ?",
-    "reponses_propose": [
-      "Le Canal des Pangalanes",
-      "La lagune de Vohipeno",
-      "La lagune d'Anosy",
-      "Le lac Andraikiba"
-    ],
-    "response": "Le Canal des Pangalanes"
-  },
-  {
-    "question": "Quel est le nom de la plante, endémique de Madagascar, utilisée pour fabriquer la boisson 'betasitry' ?",
-    "reponses_propose": [
-      "Le Ravenala",
-      "Le Baobab",
-      "Le Palmier",
-      "L'Aloe vera"
-    ],
-    "response": "Le Palmier"
-  },
-  {
-    "question": "Quel est le surnom de la ville de Fianarantsoa ?",
-    "reponses_propose": [
-      "La ville des fleurs",
-      "La ville d'eau",
-      "La ville des 1000",
-      "La ville des roches"
-    ],
-    "response": "La ville des roches"
-  },
-  {
-    "question": "Quel est le nom du parc national où l'on peut trouver le lémurien sifaka ?",
-    "reponses_propose": ["Andasibe", "Isalo", "Ranomafana", "Kirindy"],
-    "response": "Kirindy"
-  },
-  {
-    "question": "Quel est le nom du grand marché d'Antananarivo, où l'on trouve de l'artisanat ?",
-    "reponses_propose": [
-      "Le marché d'Andravoahangy",
-      "Le marché de La Digue",
-      "Le marché d'Analakely",
-      "Le marché d'Isotry"
-    ],
-    "response": "Le marché d'Andravoahangy"
-  },
-  {
-    "question": "Quel est le nom de la danse traditionnelle malgache où les danseurs imitent les mouvements des animaux ?",
-    "reponses_propose": [
-      "Le Tsapiky",
-      "Le Salegy",
-      "Le Hira Gasy",
-      "Le Vakodrazana"
-    ],
-    "response": "Le Vakodrazana"
-  },
-  {
-    "question": "Quel est le nom du plat malgache à base de viande de zébu séchée et salée ?",
-    "reponses_propose": [
-      "Le Romazava",
-      "Le Kitoza",
-      "Le Lasary",
-      "Le Ravitoto"
-    ],
-    "response": "Le Kitoza"
-  },
-  {
-    "question": "Quel est le nom de la baie du nord de Madagascar, connue pour ses plages de sable blanc ?",
-    "reponses_propose": [
-      "La Baie des Bengalis",
-      "La Baie des Dunes",
-      "La Baie de Sakalava",
-      "La Baie des Russes"
-    ],
-    "response": "La Baie de Sakalava"
-  },
-  {
-    "question": "Quel est le nom du célèbre musicien malgache, roi du Salegy ?",
-    "reponses_propose": ["Jaojoby", "Rossy", "Dama", "Tsimahora"],
-    "response": "Jaojoby"
-  },
-  {
-    "question": "Quelle était la capitale du royaume Merina avant Antananarivo ?",
-    "reponses_propose": [
-      "Ambohimanga",
-      "Antsirabe",
-      "Fianarantsoa",
-      "Mahajanga"
-    ],
-    "response": "Ambohimanga"
-  },
-  {
-    "question": "Quel nom porte la musique traditionnelle des Hautes Terres, souvent jouée lors des fêtes ?",
-    "reponses_propose": [
-      "Le Hira Gasy",
-      "Le Salegy",
-      "Le Tsapiky",
-      "Le Batrelaka"
-    ],
-    "response": "Le Hira Gasy"
-  },
-  {
-    "question": "Quel est le nom de la lagune dans la région de Manakara ?",
-    "reponses_propose": [
-      "Le Canal des Pangalanes",
-      "La lagune de Vohipeno",
-      "La lagune d'Anosy",
-      "Le lac Andraikiba"
-    ],
-    "response": "Le Canal des Pangalanes"
-  },
-  {
-    "question": "Quel est le nom de la plante, endémique de Madagascar, utilisée pour fabriquer la boisson 'betasitry' ?",
-    "reponses_propose": [
-      "Le Ravenala",
-      "Le Baobab",
-      "Le Palmier",
-      "L'Aloe vera"
-    ],
-    "response": "Le Palmier"
-  },
-  {
-    "question": "Quel est le surnom de la ville de Fianarantsoa ?",
-    "reponses_propose": [
-      "La ville des fleurs",
-      "La ville d'eau",
-      "La ville des 1000",
-      "La ville des roches"
-    ],
-    "response": "La ville des roches"
-  },
-  {
-    "question": "Quel est le nom du parc national où l'on peut trouver le lémurien sifaka ?",
-    "reponses_propose": ["Andasibe", "Isalo", "Ranomafana", "Kirindy"],
-    "response": "Kirindy"
-  },
-  {
-    "question": "Quel est le nom du grand marché d'Antananarivo, où l'on trouve de l'artisanat ?",
-    "reponses_propose": [
-      "Le marché d'Andravoahangy",
-      "Le marché de La Digue",
-      "Le marché d'Analakely",
-      "Le marché d'Isotry"
-    ],
-    "response": "Le marché d'Andravoahangy"
-  },
-  {
-    "question": "Quel est le nom de la danse traditionnelle malgache où les danseurs imitent les mouvements des animaux ?",
-    "reponses_propose": [
-      "Le Tsapiky",
-      "Le Salegy",
-      "Le Hira Gasy",
-      "Le Vakodrazana"
-    ],
-    "response": "Le Vakodrazana"
-  },
-  {
-    "question": "Quel est le nom du plat malgache à base de viande de zébu séchée et salée ?",
-    "reponses_propose": [
-      "Le Romazava",
-      "Le Kitoza",
-      "Le Lasary",
-      "Le Ravitoto"
-    ],
-    "response": "Le Kitoza"
-  },
-  {
-    "question": "Quel est le nom de la baie du nord de Madagascar, connue pour ses plages de sable blanc ?",
-    "reponses_propose": [
-      "La Baie des Bengalis",
-      "La Baie des Dunes",
-      "La Baie de Sakalava",
-      "La Baie des Russes"
-    ],
-    "response": "La Baie de Sakalava"
-  },
-  {
-    "question": "Quel est le nom du célèbre musicien malgache, roi du Salegy ?",
-    "reponses_propose": ["Jaojoby", "Rossy", "Dama", "Tsimahora"],
-    "response": "Jaojoby"
-  },
-  {
-    "question": "Quelle était la capitale du royaume Merina avant Antananarivo ?",
-    "reponses_propose": [
-      "Ambohimanga",
-      "Antsirabe",
-      "Fianarantsoa",
-      "Mahajanga"
-    ],
-    "response": "Ambohimanga"
-  },
-  {
-    "question": "Quel nom porte la musique traditionnelle des Hautes Terres, souvent jouée lors des fêtes ?",
-    "reponses_propose": [
-      "Le Hira Gasy",
-      "Le Salegy",
-      "Le Tsapiky",
-      "Le Batrelaka"
-    ],
-    "response": "Le Hira Gasy"
-  },
-  {
-    "question": "Quel est le nom de la lagune dans la région de Manakara ?",
-    "reponses_propose": [
-      "Le Canal des Pangalanes",
-      "La lagune de Vohipeno",
-      "La lagune d'Anosy",
-      "Le lac Andraikiba"
-    ],
-    "response": "Le Canal des Pangalanes"
-  },
-  {
-    "question": "Quel est le nom de la plante, endémique de Madagascar, utilisée pour fabriquer la boisson 'betasitry' ?",
-    "reponses_propose": [
-      "Le Ravenala",
-      "Le Baobab",
-      "Le Palmier",
-      "L'Aloe vera"
-    ],
-    "response": "Le Palmier"
-  },
-  {
-    "question": "Quel est le surnom de la ville de Fianarantsoa ?",
-    "reponses_propose": [
-      "La ville des fleurs",
-      "La ville d'eau",
-      "La ville des 1000",
-      "La ville des roches"
-    ],
-    "response": "La ville des roches"
-  },
-  {
-    "question": "Quel est le nom du parc national où l'on peut trouver le lémurien sifaka ?",
-    "reponses_propose": ["Andasibe", "Isalo", "Ranomafana", "Kirindy"],
-    "response": "Kirindy"
-  },
-  {
-    "question": "Quel est le nom du grand marché d'Antananarivo, où l'on trouve de l'artisanat ?",
-    "reponses_propose": [
-      "Le marché d'Andravoahangy",
-      "Le marché de La Digue",
-      "Le marché d'Analakely",
-      "Le marché d'Isotry"
-    ],
-    "response": "Le marché d'Andravoahangy"
-  },
-  {
-    "question": "Quel est le nom de la danse traditionnelle malgache où les danseurs imitent les mouvements des animaux ?",
-    "reponses_propose": [
-      "Le Tsapiky",
-      "Le Salegy",
-      "Le Hira Gasy",
-      "Le Vakodrazana"
-    ],
-    "response": "Le Vakodrazana"
-  },
-  {
-    "question": "Quel est le nom du plat malgache à base de viande de zébu séchée et salée ?",
-    "reponses_propose": [
-      "Le Romazava",
-      "Le Kitoza",
-      "Le Lasary",
-      "Le Ravitoto"
-    ],
-    "response": "Le Kitoza"
-  },
-  {
-    "question": "Quel est le nom de la baie du nord de Madagascar, connue pour ses plages de sable blanc ?",
-    "reponses_propose": [
-      "La Baie des Bengalis",
-      "La Baie des Dunes",
-      "La Baie de Sakalava",
-      "La Baie des Russes"
-    ],
-    "response": "La Baie de Sakalava"
-  },
-  {
-    "question": "Quel est le nom du célèbre musicien malgache, roi du Salegy ?",
-    "reponses_propose": ["Jaojoby", "Rossy", "Dama", "Tsimahora"],
-    "response": "Jaojoby"
-  },
-  {
-    "question": "Quelle était la capitale du royaume Merina avant Antananarivo ?",
-    "reponses_propose": [
-      "Ambohimanga",
-      "Antsirabe",
-      "Fianarantsoa",
-      "Mahajanga"
-    ],
-    "response": "Ambohimanga"
-  },
-  {
-    "question": "Quel nom porte la musique traditionnelle des Hautes Terres, souvent jouée lors des fêtes ?",
-    "reponses_propose": [
-      "Le Hira Gasy",
-      "Le Salegy",
-      "Le Tsapiky",
-      "Le Batrelaka"
-    ],
-    "response": "Le Hira Gasy"
-  },
-  {
-    "question": "Quel est le nom de la lagune dans la région de Manakara ?",
-    "reponses_propose": [
-      "Le Canal des Pangalanes",
-      "La lagune de Vohipeno",
-      "La lagune d'Anosy",
-      "Le lac Andraikiba"
-    ],
-    "response": "Le Canal des Pangalanes"
-  },
-  {
-    "question": "Quel est le nom de la plante, endémique de Madagascar, utilisée pour fabriquer la boisson 'betasitry' ?",
-    "reponses_propose": [
-      "Le Ravenala",
-      "Le Baobab",
-      "Le Palmier",
-      "L'Aloe vera"
-    ],
-    "response": "Le Palmier"
-  },
-  {
-    "question": "Quel est le surnom de la ville de Fianarantsoa ?",
-    "reponses_propose": [
-      "La ville des fleurs",
-      "La ville d'eau",
-      "La ville des 1000",
-      "La ville des roches"
-    ],
-    "response": "La ville des roches"
-  },
-  {
-    "question": "Quel est le nom du parc national où l'on peut trouver le lémurien sifaka ?",
-    "reponses_propose": ["Andasibe", "Isalo", "Ranomafana", "Kirindy"],
-    "response": "Kirindy"
-  },
-  {
-    "question": "Quel est le nom du grand marché d'Antananarivo, où l'on trouve de l'artisanat ?",
-    "reponses_propose": [
-      "Le marché d'Andravoahangy",
-      "Le marché de La Digue",
-      "Le marché d'Analakely",
-      "Le marché d'Isotry"
-    ],
-    "response": "Le marché d'Andravoahangy"
-  },
-  {
-    "question": "Quel est le nom de la danse traditionnelle malgache où les danseurs imitent les mouvements des animaux ?",
-    "reponses_propose": [
-      "Le Tsapiky",
-      "Le Salegy",
-      "Le Hira Gasy",
-      "Le Vakodrazana"
-    ],
-    "response": "Le Vakodrazana"
-  },
-  {
-    "question": "Quel est le nom du plat malgache à base de viande de zébu séchée et salée ?",
-    "reponses_propose": [
-      "Le Romazava",
-      "Le Kitoza",
-      "Le Lasary",
-      "Le Ravitoto"
-    ],
-    "response": "Le Kitoza"
-  },
-  {
-    "question": "Quel est le nom de la baie du nord de Madagascar, connue pour ses plages de sable blanc ?",
-    "reponses_propose": [
-      "La Baie des Bengalis",
-      "La Baie des Dunes",
-      "La Baie de Sakalava",
-      "La Baie des Russes"
-    ],
-    "response": "La Baie de Sakalava"
-  },
-  {
-    "question": "Quel est le nom du célèbre musicien malgache, roi du Salegy ?",
-    "reponses_propose": ["Jaojoby", "Rossy", "Dama", "Tsimahora"],
-    "response": "Jaojoby"
-  },
-  {
-    "question": "Quelle était la capitale du royaume Merina avant Antananarivo ?",
-    "reponses_propose": [
-      "Ambohimanga",
-      "Antsirabe",
-      "Fianarantsoa",
-      "Mahajanga"
-    ],
-    "response": "Ambohimanga"
-  },
-  {
-    "question": "Quel nom porte la musique traditionnelle des Hautes Terres, souvent jouée lors des fêtes ?",
-    "reponses_propose": [
-      "Le Hira Gasy",
-      "Le Salegy",
-      "Le Tsapiky",
-      "Le Batrelaka"
-    ],
-    "response": "Le Hira Gasy"
-  },
-  {
-    "question": "Quel est le nom de la lagune dans la région de Manakara ?",
-    "reponses_propose": [
-      "Le Canal des Pangalanes",
-      "La lagune de Vohipeno",
-      "La lagune d'Anosy",
-      "Le lac Andraikiba"
-    ],
-    "response": "Le Canal des Pangalanes"
-  },
-  {
-    "question": "Quel est le nom de la plante, endémique de Madagascar, utilisée pour fabriquer la boisson 'betasitry' ?",
-    "reponses_propose": [
-      "Le Ravenala",
-      "Le Baobab",
-      "Le Palmier",
-      "L'Aloe vera"
-    ],
-    "response": "Le Palmier"
-  },
-  {
-    "question": "Quel est le surnom de la ville de Fianarantsoa ?",
-    "reponses_propose": [
-      "La ville des fleurs",
-      "La ville d'eau",
-      "La ville des 1000",
-      "La ville des roches"
-    ],
-    "response": "La ville des roches"
-  },
-  {
-    "question": "Quel est le nom du parc national où l'on peut trouver le lémurien sifaka ?",
-    "reponses_propose": ["Andasibe", "Isalo", "Ranomafana", "Kirindy"],
-    "response": "Kirindy"
-  },
-  {
-    "question": "Quel est le nom du grand marché d'Antananarivo, où l'on trouve de l'artisanat ?",
-    "reponses_propose": [
-      "Le marché d'Andravoahangy",
-      "Le marché de La Digue",
-      "Le marché d'Analakely",
-      "Le marché d'Isotry"
-    ],
-    "response": "Le marché d'Andravoahangy"
-  },
-  {
-    "question": "Quel est le nom de la danse traditionnelle malgache où les danseurs imitent les mouvements des animaux ?",
-    "reponses_propose": [
-      "Le Tsapiky",
-      "Le Salegy",
-      "Le Hira Gasy",
-      "Le Vakodrazana"
-    ],
-    "response": "Le Vakodrazana"
-  },
-  {
-    "question": "Quel est le nom du plat malgache à base de viande de zébu séchée et salée ?",
-    "reponses_propose": [
-      "Le Romazava",
-      "Le Kitoza",
-      "Le Lasary",
-      "Le Ravitoto"
-    ],
-    "response": "Le Kitoza"
-  },
-  {
-    "question": "Quel est le nom de la baie du nord de Madagascar, connue pour ses plages de sable blanc ?",
-    "reponses_propose": [
-      "La Baie des Bengalis",
-      "La Baie des Dunes",
-      "La Baie de Sakalava",
-      "La Baie des Russes"
-    ],
-    "response": "La Baie de Sakalava"
-  },
-  {
-    "question": "Quel est le nom du célèbre musicien malgache, roi du Salegy ?",
-    "reponses_propose": ["Jaojoby", "Rossy", "Dama", "Tsimahora"],
-    "response": "Jaojoby"
-  },
-  {
-    "question": "Quelle était la capitale du royaume Merina avant Antananarivo ?",
-    "reponses_propose": [
-      "Ambohimanga",
-      "Antsirabe",
-      "Fianarantsoa",
-      "Mahajanga"
-    ],
-    "response": "Ambohimanga"
-  },
-  {
-    "question": "Quel nom porte la musique traditionnelle des Hautes Terres, souvent jouée lors des fêtes ?",
-    "reponses_propose": [
-      "Le Hira Gasy",
-      "Le Salegy",
-      "Le Tsapiky",
-      "Le Batrelaka"
-    ],
-    "response": "Le Hira Gasy"
-  },
-  {
-    "question": "Quel est le nom de la lagune dans la région de Manakara ?",
-    "reponses_propose": [
-      "Le Canal des Pangalanes",
-      "La lagune de Vohipeno",
-      "La lagune d'Anosy",
-      "Le lac Andraikiba"
-    ],
-    "response": "Le Canal des Pangalanes"
-  },
-  {
-    "question": "Quel est le nom de la plante, endémique de Madagascar, utilisée pour fabriquer la boisson 'betasitry' ?",
-    "reponses_propose": [
-      "Le Ravenala",
-      "Le Baobab",
-      "Le Palmier",
-      "L'Aloe vera"
-    ],
-    "response": "Le Palmier"
-  },
-  {
-    "question": "Quel est le surnom de la ville de Fianarantsoa ?",
-    "reponses_propose": [
-      "La ville des fleurs",
-      "La ville d'eau",
-      "La ville des 1000",
-      "La ville des roches"
-    ],
-    "response": "La ville des roches"
-  },
-  {
-    "question": "Quel est le nom du parc national où l'on peut trouver le lémurien sifaka ?",
-    "reponses_propose": ["Andasibe", "Isalo", "Ranomafana", "Kirindy"],
-    "response": "Kirindy"
-  },
-  {
-    "question": "Quel est le nom du grand marché d'Antananarivo, où l'on trouve de l'artisanat ?",
-    "reponses_propose": [
-      "Le marché d'Andravoahangy",
-      "Le marché de La Digue",
-      "Le marché d'Analakely",
-      "Le marché d'Isotry"
-    ],
-    "response": "Le marché d'Andravoahangy"
-  },
-  {
-    "question": "Quel est le nom de la danse traditionnelle malgache où les danseurs imitent les mouvements des animaux ?",
-    "reponses_propose": [
-      "Le Tsapiky",
-      "Le Salegy",
-      "Le Hira Gasy",
-      "Le Vakodrazana"
-    ],
-    "response": "Le Vakodrazana"
-  },
-  {
-    "question": "Quel est le nom du plat malgache à base de viande de zébu séchée et salée ?",
-    "reponses_propose": [
-      "Le Romazava",
-      "Le Kitoza",
-      "Le Lasary",
-      "Le Ravitoto"
-    ],
-    "response": "Le Kitoza"
-  },
-  {
-    "question": "Quel est le nom de la baie du nord de Madagascar, connue pour ses plages de sable blanc ?",
-    "reponses_propose": [
-      "La Baie des Bengalis",
-      "La Baie des Dunes",
-      "La Baie de Sakalava",
-      "La Baie des Russes"
-    ],
-    "response": "La Baie de Sakalava"
-  },
-  {
-    "question": "Quel est le nom du célèbre musicien malgache, roi du Salegy ?",
-    "reponses_propose": ["Jaojoby", "Rossy", "Dama", "Tsimahora"],
-    "response": "Jaojoby"
-  },
-  {
-    "question": "Quelle était la capitale du royaume Merina avant Antananarivo ?",
-    "reponses_propose": [
-      "Ambohimanga",
-      "Antsirabe",
-      "Fianarantsoa",
-      "Mahajanga"
-    ],
-    "response": "Ambohimanga"
-  },
-  {
-    "question": "Quel nom porte la musique traditionnelle des Hautes Terres, souvent jouée lors des fêtes ?",
-    "reponses_propose": [
-      "Le Hira Gasy",
-      "Le Salegy",
-      "Le Tsapiky",
-      "Le Batrelaka"
-    ],
-    "response": "Le Hira Gasy"
-  },
-  {
-    "question": "Quel est le nom de la lagune dans la région de Manakara ?",
-    "reponses_propose": [
-      "Le Canal des Pangalanes",
-      "La lagune de Vohipeno",
-      "La lagune d'Anosy",
-      "Le lac Andraikiba"
-    ],
-    "response": "Le Canal des Pangalanes"
+      "Le Bananier"
+    ],
+    "response": "Le Ravenala",
+    "explanation": "Le Ravenala madagascariensis est surnommé l'arbre du voyageur.",
+    "source": {
+      "title": "Ravenala — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Ravenala_madagascariensis"
+    }
+  },
+  {
+    "id": 6,
+    "category": "Cuisine",
+    "difficulty": "Facile",
+    "question": "Quel aliment accompagne traditionnellement la plupart des repas malgaches ?",
+    "reponses_propose": ["Le Pain", "Le Riz", "Le Manioc", "La Patate douce"],
+    "response": "Le Riz",
+    "explanation": "Le riz est l'aliment de base de la cuisine malgache.",
+    "source": {
+      "title": "Cuisine malgache — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Cuisine_malgache"
+    }
+  },
+  {
+    "id": 7,
+    "category": "Patrimoine",
+    "difficulty": "Moyen",
+    "question": "Quelle célèbre avenue est connue pour ses immenses baobabs ?",
+    "reponses_propose": [
+      "Avenue des Lémuriens",
+      "Allée des Baobabs",
+      "Route Royale",
+      "Avenue des Voyageurs"
+    ],
+    "response": "Allée des Baobabs",
+    "explanation": "L'Allée des Baobabs est l'un des sites les plus photographiés de Madagascar.",
+    "source": {
+      "title": "Allée des Baobabs — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/All%C3%A9e_des_Baobabs"
+    }
+  },
+  {
+    "id": 8,
+    "category": "Économie",
+    "difficulty": "Moyen",
+    "question": "Quel produit fait de Madagascar l'un des principaux producteurs mondiaux ?",
+    "reponses_propose": ["Le Café", "La Cannelle", "La Vanille", "Le Thé"],
+    "response": "La Vanille",
+    "explanation": "Madagascar est le premier exportateur mondial de vanille naturelle.",
+    "source": {
+      "title": "Vanille de Madagascar — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Vanille"
+    }
+  },
+  {
+    "id": 9,
+    "category": "Histoire",
+    "difficulty": "Moyen",
+    "question": "En quelle année Madagascar a-t-elle obtenu son indépendance ?",
+    "reponses_propose": ["1958", "1960", "1965", "1972"],
+    "response": "1960",
+    "explanation": "Madagascar est devenue indépendante le 26 juin 1960.",
+    "source": {
+      "title": "Histoire de Madagascar — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Histoire_de_Madagascar"
+    }
+  },
+  {
+    "id": 10,
+    "category": "Nature",
+    "difficulty": "Moyen",
+    "question": "Quel pourcentage approximatif des espèces animales de Madagascar est endémique ?",
+    "reponses_propose": ["20 %", "40 %", "80 %", "95 %"],
+    "response": "80 %",
+    "explanation": "Madagascar possède un taux exceptionnel d'endémisme, souvent estimé à environ 80 % pour la faune.",
+    "source": {
+      "title": "Madagascar National Parks",
+      "url": "https://www.parcs-madagascar.com/"
+    }
+  },
+  {
+    "id": 11,
+    "category": "Culture",
+    "difficulty": "Facile",
+    "question": "Comment appelle-t-on le célèbre tissu traditionnel malgache ?",
+    "reponses_propose": ["Kente", "Lamba", "Bazin", "Kikoy"],
+    "response": "Lamba",
+    "explanation": "Le lamba est un vêtement traditionnel porté dans de nombreuses régions de Madagascar.",
+    "source": {
+      "title": "Lamba — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Lamba_(Madagascar)"
+    }
+  },
+  {
+    "id": 12,
+    "category": "Géographie",
+    "difficulty": "Facile",
+    "question": "Dans quel océan se situe Madagascar ?",
+    "reponses_propose": ["Atlantique", "Pacifique", "Indien", "Arctique"],
+    "response": "Indien",
+    "explanation": "Madagascar est située dans l'océan Indien, au large de la côte sud-est de l'Afrique.",
+    "source": {
+      "title": "Madagascar — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Madagascar"
+    }
+  },
+  {
+    "id": 13,
+    "category": "Faune",
+    "difficulty": "Moyen",
+    "question": "Quel reptile est particulièrement célèbre à Madagascar ?",
+    "reponses_propose": [
+      "Le Caméléon",
+      "Le Crocodile",
+      "Le Python",
+      "L'Iguane"
+    ],
+    "response": "Le Caméléon",
+    "explanation": "Madagascar abrite une très grande diversité de caméléons, dont plusieurs espèces endémiques.",
+    "source": {
+      "title": "Caméléon — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Cam%C3%A9l%C3%A9on"
+    }
+  },
+  {
+    "id": 14,
+    "category": "Culture",
+    "difficulty": "Moyen",
+    "question": "Quel instrument de musique traditionnel est fabriqué en bambou ?",
+    "reponses_propose": ["Kabosy", "Valiha", "Marovany", "Lokanga"],
+    "response": "Valiha",
+    "explanation": "La valiha est une cithare tubulaire en bambou emblématique de Madagascar.",
+    "source": {
+      "title": "Valiha — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Valiha"
+    }
+  },
+  {
+    "id": 15,
+    "category": "Patrimoine",
+    "difficulty": "Moyen",
+    "question": "Quel palais domine la ville d'Antananarivo ?",
+    "reponses_propose": [
+      "Palais d'Iavoloha",
+      "Rova d'Antananarivo",
+      "Palais de Mahazoarivo",
+      "Palais de Tsimbazaza"
+    ],
+    "response": "Rova d'Antananarivo",
+    "explanation": "Le Rova était le palais royal des souverains Merina.",
+    "source": {
+      "title": "Rova d'Antananarivo — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Rova_d%27Antananarivo"
+    }
+  },
+  {
+    "id": 16,
+    "category": "Nature",
+    "difficulty": "Difficile",
+    "question": "Quel parc national est inscrit au patrimoine mondial de l'UNESCO pour ses forêts humides ?",
+    "reponses_propose": [
+      "Isalo",
+      "Andasibe",
+      "Les forêts humides de l'Atsinanana",
+      "Tsingy Rouge"
+    ],
+    "response": "Les forêts humides de l'Atsinanana",
+    "explanation": "Les forêts humides de l'Atsinanana sont inscrites au patrimoine mondial de l'UNESCO.",
+    "source": {
+      "title": "UNESCO - Forêts humides de l'Atsinanana",
+      "url": "https://whc.unesco.org/fr/list/1257/"
+    }
+  },
+  {
+    "id": 17,
+    "category": "Géographie",
+    "difficulty": "Moyen",
+    "question": "Quel est le plus haut sommet de Madagascar ?",
+    "reponses_propose": [
+      "Pic Boby",
+      "Maromokotro",
+      "Andringitra",
+      "Tsaratanana"
+    ],
+    "response": "Maromokotro",
+    "explanation": "Le Maromokotro culmine à environ 2 876 mètres d'altitude.",
+    "source": {
+      "title": "Maromokotro — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Maromokotro"
+    }
+  },
+  {
+    "id": 18,
+    "category": "Cuisine",
+    "difficulty": "Moyen",
+    "question": "Quel plat est composé principalement de feuilles de manioc pilées ?",
+    "reponses_propose": ["Romazava", "Ravitoto", "Akoho sy Voanio", "Varanga"],
+    "response": "Ravitoto",
+    "explanation": "Le ravitoto est préparé à base de feuilles de manioc pilées, souvent accompagnées de viande de porc.",
+    "source": {
+      "title": "Cuisine malgache — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Cuisine_malgache"
+    }
+  },
+  {
+    "id": 19,
+    "category": "Culture",
+    "difficulty": "Difficile",
+    "question": "Quel royaume dominait les Hautes Terres avant la colonisation française ?",
+    "reponses_propose": [
+      "Le royaume Sakalava",
+      "Le royaume Merina",
+      "Le royaume Antemoro",
+      "Le royaume Betsimisaraka"
+    ],
+    "response": "Le royaume Merina",
+    "explanation": "Le royaume Merina a progressivement unifié une grande partie de Madagascar au XIXᵉ siècle.",
+    "source": {
+      "title": "Royaume Merina — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Royaume_merina"
+    }
+  },
+  {
+    "id": 20,
+    "category": "Biodiversité",
+    "difficulty": "Moyen",
+    "question": "Pourquoi la biodiversité de Madagascar est-elle considérée comme exceptionnelle ?",
+    "reponses_propose": [
+      "Parce qu'elle possède de nombreux volcans",
+      "Parce qu'une grande partie de ses espèces est endémique",
+      "Parce qu'elle est le plus grand désert d'Afrique",
+      "Parce qu'elle est entièrement recouverte de forêts"
+    ],
+    "response": "Parce qu'une grande partie de ses espèces est endémique",
+    "explanation": "L'isolement géographique de Madagascar a favorisé l'évolution d'un très grand nombre d'espèces uniques au monde.",
+    "source": {
+      "title": "Madagascar National Parks",
+      "url": "https://www.parcs-madagascar.com/"
+    }
+  },
+  {
+    "id": 21,
+    "category": "Géographie",
+    "difficulty": "Facile",
+    "question": "Combien de provinces comptait traditionnellement Madagascar avant la création des régions ?",
+    "reponses_propose": ["4", "5", "6", "8"],
+    "response": "6",
+    "explanation": "Madagascar était divisé en six provinces autonomes avant la mise en place des régions.",
+    "source": {
+      "title": "Provinces de Madagascar — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Provinces_de_Madagascar"
+    }
+  },
+  {
+    "id": 22,
+    "category": "Nature",
+    "difficulty": "Facile",
+    "question": "Quel parc national est le plus connu pour observer les Indri Indri ?",
+    "reponses_propose": [
+      "Isalo",
+      "Andasibe-Mantadia",
+      "Ankarafantsika",
+      "Masoala"
+    ],
+    "response": "Andasibe-Mantadia",
+    "explanation": "Le parc national d'Andasibe-Mantadia est réputé pour abriter l'Indri, le plus grand des lémuriens.",
+    "source": {
+      "title": "Parc national d'Andasibe-Mantadia",
+      "url": "https://fr.wikipedia.org/wiki/Parc_national_d%27Andasibe-Mantadia"
+    }
+  },
+  {
+    "id": 23,
+    "category": "Cuisine",
+    "difficulty": "Facile",
+    "question": "Quel plat traditionnel est préparé avec du bœuf et des brèdes ?",
+    "reponses_propose": ["Ravitoto", "Romazava", "Akoho sy Voanio", "Koba"],
+    "response": "Romazava",
+    "explanation": "Le Romazava est considéré comme le plat national malgache.",
+    "source": {
+      "title": "Romazava — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Romazava"
+    }
+  },
+  {
+    "id": 24,
+    "category": "Culture",
+    "difficulty": "Moyen",
+    "question": "Comment s'appelle la cérémonie traditionnelle de retournement des morts ?",
+    "reponses_propose": ["Fitampoha", "Famadihana", "Sambatra", "Joro"],
+    "response": "Famadihana",
+    "explanation": "Le Famadihana est une cérémonie de retournement des ancêtres pratiquée dans certaines régions.",
+    "source": {
+      "title": "Famadihana — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Famadihana"
+    }
+  },
+  {
+    "id": 25,
+    "category": "Faune",
+    "difficulty": "Moyen",
+    "question": "Quel est le plus grand lémurien vivant actuellement ?",
+    "reponses_propose": ["Maki Catta", "Sifaka", "Indri", "Aye-aye"],
+    "response": "Indri",
+    "explanation": "L'Indri est le plus grand lémurien vivant de Madagascar.",
+    "source": {
+      "title": "Indri — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Indri"
+    }
+  },
+  {
+    "id": 26,
+    "category": "Économie",
+    "difficulty": "Moyen",
+    "question": "Quel minerai précieux est largement exploité dans le sud de Madagascar ?",
+    "reponses_propose": ["Le Diamant", "Le Nickel", "Le Saphir", "L'Or"],
+    "response": "Le Saphir",
+    "explanation": "Madagascar figure parmi les principaux producteurs mondiaux de saphirs.",
+    "source": {
+      "title": "Saphir — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Saphir"
+    }
+  },
+  {
+    "id": 27,
+    "category": "Géographie",
+    "difficulty": "Facile",
+    "question": "Quelle est la deuxième plus grande ville de Madagascar ?",
+    "reponses_propose": ["Mahajanga", "Toamasina", "Antsirabe", "Fianarantsoa"],
+    "response": "Toamasina",
+    "explanation": "Toamasina est le principal port du pays et la deuxième ville la plus peuplée.",
+    "source": {
+      "title": "Toamasina — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Toamasina"
+    }
+  },
+  {
+    "id": 28,
+    "category": "Patrimoine",
+    "difficulty": "Moyen",
+    "question": "Quel site est surnommé la 'forêt de pierre' ?",
+    "reponses_propose": [
+      "Isalo",
+      "Tsingy de Bemaraha",
+      "Montagne d'Ambre",
+      "Ankarana"
+    ],
+    "response": "Tsingy de Bemaraha",
+    "explanation": "Les Tsingy de Bemaraha sont célèbres pour leurs formations calcaires spectaculaires.",
+    "source": {
+      "title": "Tsingy de Bemaraha — UNESCO",
+      "url": "https://whc.unesco.org/fr/list/494/"
+    }
+  },
+  {
+    "id": 29,
+    "category": "Culture",
+    "difficulty": "Facile",
+    "question": "Quel est le nom de l'hymne national malgache ?",
+    "reponses_propose": [
+      "Ry Tanindrazanay malala ô",
+      "Madagasikara",
+      "Tanindrazana",
+      "Ry Gasikara"
+    ],
+    "response": "Ry Tanindrazanay malala ô",
+    "explanation": "Il s'agit de l'hymne national officiel de Madagascar.",
+    "source": {
+      "title": "Hymne national de Madagascar",
+      "url": "https://fr.wikipedia.org/wiki/Ry_Tanindrazanay_malala_%C3%B4"
+    }
+  },
+  {
+    "id": 30,
+    "category": "Nature",
+    "difficulty": "Moyen",
+    "question": "Quel est le plus grand parc national de Madagascar ?",
+    "reponses_propose": ["Masoala", "Isalo", "Ranomafana", "Andringitra"],
+    "response": "Masoala",
+    "explanation": "Le parc national de Masoala est le plus vaste parc protégé de Madagascar.",
+    "source": {
+      "title": "Parc national de Masoala",
+      "url": "https://fr.wikipedia.org/wiki/Parc_national_de_Masoala"
+    }
+  },
+  {
+    "id": 31,
+    "category": "Histoire",
+    "difficulty": "Moyen",
+    "question": "Quel royaume a joué un rôle majeur dans l'unification de Madagascar au XIXe siècle ?",
+    "reponses_propose": ["Sakalava", "Merina", "Betsileo", "Antemoro"],
+    "response": "Merina",
+    "explanation": "Le royaume Merina a progressivement unifié une grande partie de l'île.",
+    "source": {
+      "title": "Royaume Merina",
+      "url": "https://fr.wikipedia.org/wiki/Royaume_merina"
+    }
+  },
+  {
+    "id": 32,
+    "category": "Faune",
+    "difficulty": "Difficile",
+    "question": "Quel est le seul prédateur naturel de grande taille vivant à Madagascar ?",
+    "reponses_propose": ["La Fossa", "Le Crocodile", "Le Boa", "Le Serval"],
+    "response": "La Fossa",
+    "explanation": "La Fossa est le principal prédateur terrestre endémique de Madagascar.",
+    "source": {
+      "title": "Fossa — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Fossa"
+    }
+  },
+  {
+    "id": 33,
+    "category": "Cuisine",
+    "difficulty": "Facile",
+    "question": "Quel dessert traditionnel est préparé avec de la farine de riz, des cacahuètes et du sucre ?",
+    "reponses_propose": ["Koba", "Mofo Gasy", "Bonbon Coco", "Ramanonaka"],
+    "response": "Koba",
+    "explanation": "Le Koba est une spécialité traditionnelle très appréciée à Madagascar.",
+    "source": {
+      "title": "Cuisine malgache",
+      "url": "https://fr.wikipedia.org/wiki/Cuisine_malgache"
+    }
+  },
+  {
+    "id": 34,
+    "category": "Nature",
+    "difficulty": "Moyen",
+    "question": "Quelle forêt tropicale est la plus vaste de Madagascar ?",
+    "reponses_propose": ["Masoala", "Ranomafana", "Ankarafantsika", "Kirindy"],
+    "response": "Masoala",
+    "explanation": "La péninsule de Masoala abrite la plus vaste forêt tropicale protégée du pays.",
+    "source": {
+      "title": "Parc national de Masoala",
+      "url": "https://fr.wikipedia.org/wiki/Parc_national_de_Masoala"
+    }
+  },
+  {
+    "id": 35,
+    "category": "Culture",
+    "difficulty": "Moyen",
+    "question": "Que signifie le mot 'Fihavanana' dans la culture malgache ?",
+    "reponses_propose": [
+      "Le courage",
+      "La solidarité",
+      "La richesse",
+      "La liberté"
+    ],
+    "response": "La solidarité",
+    "explanation": "Le Fihavanana représente les valeurs de solidarité, d'entraide et d'harmonie entre les personnes.",
+    "source": {
+      "title": "Fihavanana — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Fihavanana"
+    }
+  },
+  {
+    "id": 36,
+    "category": "Géographie",
+    "difficulty": "Facile",
+    "question": "Quel est le plus long fleuve de Madagascar ?",
+    "reponses_propose": ["Mangoky", "Tsiribihina", "Betsiboka", "Onilahy"],
+    "response": "Mangoky",
+    "explanation": "Le Mangoky est le plus long fleuve de Madagascar.",
+    "source": {
+      "title": "Mangoky — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Mangoky"
+    }
+  },
+  {
+    "id": 37,
+    "category": "Nature",
+    "difficulty": "Moyen",
+    "question": "Quel parc national est célèbre pour ses canyons et ses paysages désertiques ?",
+    "reponses_propose": ["Ranomafana", "Isalo", "Andasibe", "Masoala"],
+    "response": "Isalo",
+    "explanation": "Le parc national de l'Isalo est réputé pour ses canyons, piscines naturelles et formations rocheuses.",
+    "source": {
+      "title": "Parc national de l'Isalo",
+      "url": "https://fr.wikipedia.org/wiki/Parc_national_de_l%27Isalo"
+    }
+  },
+  {
+    "id": 38,
+    "category": "Faune",
+    "difficulty": "Moyen",
+    "question": "Quel lémurien est reconnaissable grâce à sa queue rayée noire et blanche ?",
+    "reponses_propose": ["Aye-aye", "Indri", "Maki Catta", "Sifaka"],
+    "response": "Maki Catta",
+    "explanation": "Le Maki Catta est facilement identifiable grâce à sa longue queue annelée.",
+    "source": {
+      "title": "Maki Catta — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Lemur_catta"
+    }
+  },
+  {
+    "id": 39,
+    "category": "Culture",
+    "difficulty": "Facile",
+    "question": "Quel est le prénom féminin le plus porté à Madagascar ?",
+    "reponses_propose": ["Voahangy", "Rasoa", "Marie", "Hanitra"],
+    "response": "Marie",
+    "explanation": "Marie est un prénom très répandu à Madagascar, notamment sous l'influence de la tradition chrétienne.",
+    "source": {
+      "title": "Prénoms à Madagascar",
+      "url": "https://fr.wikipedia.org/wiki/Pr%C3%A9nom"
+    }
+  },
+  {
+    "id": 40,
+    "category": "Biodiversité",
+    "difficulty": "Difficile",
+    "question": "Environ quel pourcentage des espèces végétales de Madagascar sont endémiques ?",
+    "reponses_propose": ["40 %", "60 %", "80 %", "90 %"],
+    "response": "90 %",
+    "explanation": "Près de 90 % des espèces végétales de Madagascar sont endémiques, ce qui en fait l'un des plus importants foyers de biodiversité au monde.",
+    "source": {
+      "title": "Madagascar Biodiversity",
+      "url": "https://www.worldwildlife.org/places/madagascar"
+    }
+  },
+  {
+    "id": 41,
+    "category": "Géographie",
+    "difficulty": "Facile",
+    "question": "Quelle est la plus grande île située au large de Madagascar ?",
+    "reponses_propose": [
+      "Nosy Be",
+      "Nosy Boraha",
+      "Nosy Mangabe",
+      "Nosy Komba"
+    ],
+    "response": "Nosy Be",
+    "explanation": "Nosy Be est la plus grande île côtière de Madagascar et une destination touristique majeure.",
+    "source": {
+      "title": "Nosy Be — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Nosy_Be"
+    }
+  },
+  {
+    "id": 42,
+    "category": "Culture",
+    "difficulty": "Facile",
+    "question": "Comment appelle-t-on les habitants de Madagascar ?",
+    "reponses_propose": [
+      "Malgaches",
+      "Malgasiens",
+      "Madagascariens",
+      "Gasikars"
+    ],
+    "response": "Malgaches",
+    "explanation": "Les habitants de Madagascar sont appelés les Malgaches.",
+    "source": {
+      "title": "Madagascar — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Madagascar"
+    }
+  },
+  {
+    "id": 43,
+    "category": "Nature",
+    "difficulty": "Moyen",
+    "question": "Combien d'espèces de baobabs trouve-t-on naturellement à Madagascar ?",
+    "reponses_propose": ["2", "4", "6", "8"],
+    "response": "6",
+    "explanation": "Madagascar abrite six des huit espèces de baobabs connues dans le monde.",
+    "source": {
+      "title": "Adansonia — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Adansonia"
+    }
+  },
+  {
+    "id": 44,
+    "category": "Cuisine",
+    "difficulty": "Facile",
+    "question": "Quel fruit est largement cultivé dans la région de Sambava ?",
+    "reponses_propose": ["Litchi", "Mangue", "Vanille", "Ananas"],
+    "response": "Vanille",
+    "explanation": "La région SAVA est mondialement connue pour sa production de vanille.",
+    "source": {
+      "title": "Vanille de Madagascar",
+      "url": "https://fr.wikipedia.org/wiki/Vanille"
+    }
+  },
+  {
+    "id": 45,
+    "category": "Histoire",
+    "difficulty": "Facile",
+    "question": "Le 26 juin est une date importante à Madagascar. Que célèbre-t-on ?",
+    "reponses_propose": [
+      "La fête du Travail",
+      "L'Indépendance",
+      "La République",
+      "La Constitution"
+    ],
+    "response": "L'Indépendance",
+    "explanation": "Madagascar a obtenu son indépendance le 26 juin 1960.",
+    "source": {
+      "title": "Indépendance de Madagascar",
+      "url": "https://fr.wikipedia.org/wiki/Histoire_de_Madagascar"
+    }
+  },
+  {
+    "id": 46,
+    "category": "Faune",
+    "difficulty": "Moyen",
+    "question": "Quel lémurien est le seul à être principalement nocturne parmi ces propositions ?",
+    "reponses_propose": ["Indri", "Aye-aye", "Maki Catta", "Sifaka"],
+    "response": "Aye-aye",
+    "explanation": "L'Aye-aye est un lémurien nocturne unique au monde.",
+    "source": {
+      "title": "Aye-aye — Wikipédia",
+      "url": "https://fr.wikipedia.org/wiki/Aye-aye"
+    }
+  },
+  {
+    "id": 47,
+    "category": "Patrimoine",
+    "difficulty": "Moyen",
+    "question": "Quel site est inscrit au patrimoine mondial de l'UNESCO pour ses formations calcaires ?",
+    "reponses_propose": [
+      "Tsingy de Bemaraha",
+      "Isalo",
+      "Masoala",
+      "Ranomafana"
+    ],
+    "response": "Tsingy de Bemaraha",
+    "explanation": "Les Tsingy de Bemaraha sont classés au patrimoine mondial depuis 1990.",
+    "source": {
+      "title": "UNESCO - Tsingy de Bemaraha",
+      "url": "https://whc.unesco.org/fr/list/494/"
+    }
+  },
+  {
+    "id": 48,
+    "category": "Culture",
+    "difficulty": "Moyen",
+    "question": "Quelle valeur est au cœur de la société malgache ?",
+    "reponses_propose": ["Ubuntu", "Fihavanana", "Teranga", "Harambee"],
+    "response": "Fihavanana",
+    "explanation": "Le Fihavanana représente l'entraide, la solidarité et le respect des autres.",
+    "source": {
+      "title": "Fihavanana",
+      "url": "https://fr.wikipedia.org/wiki/Fihavanana"
+    }
+  },
+  {
+    "id": 49,
+    "category": "Nature",
+    "difficulty": "Facile",
+    "question": "Quel est le climat dominant sur les Hautes Terres malgaches ?",
+    "reponses_propose": [
+      "Équatorial",
+      "Désertique",
+      "Tropical d'altitude",
+      "Polaire"
+    ],
+    "response": "Tropical d'altitude",
+    "explanation": "Les Hautes Terres bénéficient d'un climat plus frais que les régions côtières.",
+    "source": {
+      "title": "Géographie de Madagascar",
+      "url": "https://fr.wikipedia.org/wiki/G%C3%A9ographie_de_Madagascar"
+    }
+  },
+  {
+    "id": 50,
+    "category": "Géographie",
+    "difficulty": "Facile",
+    "question": "Quel est le principal port commercial de Madagascar ?",
+    "reponses_propose": ["Mahajanga", "Toliara", "Toamasina", "Antsiranana"],
+    "response": "Toamasina",
+    "explanation": "Le port de Toamasina est le plus important du pays.",
+    "source": {
+      "title": "Port de Toamasina",
+      "url": "https://fr.wikipedia.org/wiki/Toamasina"
+    }
+  },
+  {
+    "id": 51,
+    "category": "Nature",
+    "difficulty": "Moyen",
+    "question": "Quel animal est surnommé 'le fantôme de la forêt' à Madagascar ?",
+    "reponses_propose": ["Indri", "Fossa", "Aye-aye", "Caméléon"],
+    "response": "Aye-aye",
+    "explanation": "L'Aye-aye est entouré de nombreuses croyances populaires.",
+    "source": {
+      "title": "Aye-aye",
+      "url": "https://fr.wikipedia.org/wiki/Aye-aye"
+    }
+  },
+  {
+    "id": 52,
+    "category": "Culture",
+    "difficulty": "Facile",
+    "question": "Quelle est la monnaie officielle de Madagascar ?",
+    "reponses_propose": ["Franc malgache", "Ariary", "Shilling", "CFA"],
+    "response": "Ariary",
+    "explanation": "L'ariary est la monnaie officielle depuis 2005.",
+    "source": {
+      "title": "Ariary",
+      "url": "https://fr.wikipedia.org/wiki/Ariary"
+    }
+  },
+  {
+    "id": 53,
+    "category": "Faune",
+    "difficulty": "Facile",
+    "question": "Quel groupe d'animaux est particulièrement diversifié à Madagascar ?",
+    "reponses_propose": [
+      "Les ours",
+      "Les caméléons",
+      "Les tigres",
+      "Les loups"
+    ],
+    "response": "Les caméléons",
+    "explanation": "Madagascar abrite près de la moitié des espèces de caméléons du monde.",
+    "source": {
+      "title": "Caméléons de Madagascar",
+      "url": "https://fr.wikipedia.org/wiki/Cam%C3%A9l%C3%A9on"
+    }
+  },
+  {
+    "id": 54,
+    "category": "Cuisine",
+    "difficulty": "Facile",
+    "question": "Quelle boisson chaude est produite dans plusieurs régions de Madagascar ?",
+    "reponses_propose": ["Le café", "Le maté", "Le cacao", "Le kombucha"],
+    "response": "Le café",
+    "explanation": "Le café est cultivé dans plusieurs régions malgaches.",
+    "source": {
+      "title": "Café à Madagascar",
+      "url": "https://fr.wikipedia.org/wiki/Caf%C3%A9"
+    }
+  },
+  {
+    "id": 55,
+    "category": "Histoire",
+    "difficulty": "Moyen",
+    "question": "En quelle année Madagascar est-elle devenue une colonie française ?",
+    "reponses_propose": ["1883", "1896", "1905", "1910"],
+    "response": "1896",
+    "explanation": "Madagascar est devenue une colonie française en 1896.",
+    "source": {
+      "title": "Histoire de Madagascar",
+      "url": "https://fr.wikipedia.org/wiki/Histoire_de_Madagascar"
+    }
+  },
+  {
+    "id": 56,
+    "category": "Nature",
+    "difficulty": "Moyen",
+    "question": "Quel parc national est réputé pour ses nombreuses espèces d'orchidées ?",
+    "reponses_propose": ["Ranomafana", "Isalo", "Ankarana", "Kirindy"],
+    "response": "Ranomafana",
+    "explanation": "Ranomafana est l'un des hauts lieux de la biodiversité malgache.",
+    "source": {
+      "title": "Parc national de Ranomafana",
+      "url": "https://fr.wikipedia.org/wiki/Parc_national_de_Ranomafana"
+    }
+  },
+  {
+    "id": 57,
+    "category": "Économie",
+    "difficulty": "Moyen",
+    "question": "Quel secteur emploie la plus grande partie de la population malgache ?",
+    "reponses_propose": [
+      "Le tourisme",
+      "L'agriculture",
+      "Les mines",
+      "L'industrie"
+    ],
+    "response": "L'agriculture",
+    "explanation": "L'agriculture reste le principal secteur d'activité à Madagascar.",
+    "source": {
+      "title": "Économie de Madagascar",
+      "url": "https://fr.wikipedia.org/wiki/%C3%89conomie_de_Madagascar"
+    }
+  },
+  {
+    "id": 58,
+    "category": "Patrimoine",
+    "difficulty": "Moyen",
+    "question": "Quel palais historique domine la capitale Antananarivo ?",
+    "reponses_propose": [
+      "Le Rova",
+      "Le Palais Bleu",
+      "Le Palais d'Ambohimanga",
+      "Le Palais Royal de Mahajanga"
+    ],
+    "response": "Le Rova",
+    "explanation": "Le Rova d'Antananarivo est l'ancien palais royal des souverains Merina.",
+    "source": {
+      "title": "Rova d'Antananarivo",
+      "url": "https://fr.wikipedia.org/wiki/Rova_d%27Antananarivo"
+    }
+  },
+  {
+    "id": 59,
+    "category": "Culture",
+    "difficulty": "Facile",
+    "question": "Quel est le drapeau de Madagascar composé de trois couleurs ?",
+    "reponses_propose": [
+      "Rouge, Blanc et Vert",
+      "Bleu, Blanc et Rouge",
+      "Rouge, Jaune et Vert",
+      "Vert, Noir et Blanc"
+    ],
+    "response": "Rouge, Blanc et Vert",
+    "explanation": "Le drapeau malgache est constitué d'une bande blanche verticale et de deux bandes horizontales rouge et verte.",
+    "source": {
+      "title": "Drapeau de Madagascar",
+      "url": "https://fr.wikipedia.org/wiki/Drapeau_de_Madagascar"
+    }
+  },
+  {
+    "id": 60,
+    "category": "Biodiversité",
+    "difficulty": "Difficile",
+    "question": "Pourquoi Madagascar est-elle considérée comme un 'hotspot' mondial de biodiversité ?",
+    "reponses_propose": [
+      "Parce qu'elle possède le plus grand désert d'Afrique",
+      "Parce qu'elle abrite un très grand nombre d'espèces endémiques menacées",
+      "Parce qu'elle est le pays le plus boisé du monde",
+      "Parce qu'elle possède le plus grand récif corallien"
+    ],
+    "response": "Parce qu'elle abrite un très grand nombre d'espèces endémiques menacées",
+    "explanation": "Madagascar est reconnu comme l'un des principaux hotspots de biodiversité de la planète grâce à son fort taux d'endémisme.",
+    "source": {
+      "title": "WWF - Madagascar",
+      "url": "https://www.worldwildlife.org/places/madagascar"
+    }
   }
 ]

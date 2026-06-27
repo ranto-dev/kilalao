@@ -48,9 +48,10 @@ const Header = () => {
         </a>
 
         <nav className="hidden md:flex items-center space-x-7">
-          {MENU_LINK.map((menu) => {
+          {MENU_LINK.map((menu, index) => {
             return (
               <a
+                key={index}
                 href={`#${menu.url}`}
                 className="text-xs font-semibold tracking-wide text-black hover:text-amber-400 transition-colors py-2"
               >
@@ -71,7 +72,6 @@ const Header = () => {
           </motion.a>
         </div>
 
-        {/* MOBILE MENU TRIGGER */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-slate-700 hover:text-indigo-600 transition-colors p-2 outline-none"
@@ -81,7 +81,6 @@ const Header = () => {
         </button>
       </div>
 
-      {/* RENDER DU MENU MOBILE GLOBAL */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import QuizGame from "../../components/QuizGame";
-import baobabBg from "../../assets/alle_de_baobab.png";
+import QuizGame from "../components/QuizGame";
+import baobabBg from "../assets/alle_de_baobab.png";
 
 interface Quiz {
   question: string;
