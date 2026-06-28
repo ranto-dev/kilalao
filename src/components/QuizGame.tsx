@@ -9,12 +9,22 @@ import {
   FaArrowRight,
   FaTrophy,
   FaXmark,
+  FaBookOpen, // Nouvelle icône pour la doc
 } from "react-icons/fa6";
 
+// Interface alignée sur tes données réelles
 interface Quiz {
+  id: number;
+  category: string;
+  difficulty: string;
   question: string;
   reponses_propose: string[];
   response: string;
+  explanation: string;
+  source: {
+    title: string;
+    url: string;
+  };
 }
 
 interface QuizGameProps {
@@ -170,6 +180,10 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
     );
   }
 
+  // Vérification de l'exactitude de la réponse après soumission
+  const isUserWrong =
+    isAnswerSubmitted && selectedAnswer !== currentQuestion.response;
+
   return (
     <div className="w-full max-w-xl mx-auto bg-white border border-slate-100 rounded-3xl shadow-2xl overflow-hidden select-none relative">
       <div className="w-full h-1.5 bg-slate-100 relative">
@@ -182,10 +196,21 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
       </div>
 
       <div className="p-6 md:p-8 flex flex-col gap-6">
-        <div className="flex justify-between items-center border-b border-slate-100 pb-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
-            Question {currentQuestionIndex + 1} sur {totalQuestions}
-          </span>
+        {/* En-tête avec Catégorie, Difficulté et Timer */}
+        <div className="flex justify-between items-start border-b border-slate-100 pb-4">
+          <div className="flex flex-col gap-1.5">
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+              Question {currentQuestionIndex + 1} sur {totalQuestions}
+            </span>
+            <div className="flex gap-2">
+              <span className="px-2.5 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 text-[10px] font-bold rounded-full uppercase">
+                {currentQuestion.category}
+              </span>
+              <span className="px-2.5 py-0.5 bg-slate-100 text-slate-600 text-[10px] font-bold rounded-full uppercase">
+                {currentQuestion.difficulty}
+              </span>
+            </div>
+          </div>
 
           <div
             className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-mono font-bold text-sm border transition-all ${
@@ -212,6 +237,7 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
           </h3>
         </div>
 
+        {/* Liste des réponses */}
         <div className="flex flex-col gap-3 w-full">
           <AnimatePresence mode="wait">
             {currentQuestion.reponses_propose.map((answer, index) => {
@@ -255,6 +281,47 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
           </AnimatePresence>
         </div>
 
+        {/* Section Explication & Documentation Dynamique */}
+        <AnimatePresence>
+          {isAnswerSubmitted && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className={`p-4 rounded-2xl border text-sm flex flex-col gap-3 mt-2 ${
+                isUserWrong
+                  ? "bg-rose-50/70 border-rose-100 text-rose-900"
+                  : "bg-emerald-50/70 border-emerald-100 text-emerald-900"
+              }`}
+            >
+              <div>
+                <span className="font-bold block mb-0.5">
+                  {isUserWrong
+                    ? "💡 Ce n'est pas tout à fait ça :"
+                    : "🎉 Bonne réponse !"}
+                </span>
+                <p className="text-slate-600 font-medium leading-relaxed">
+                  {currentQuestion.explanation}
+                </p>
+              </div>
+
+              {/* Le fameux bouton de documentation qui s'affiche s'il a tort */}
+              {isUserWrong && currentQuestion.source?.url && (
+                <a
+                  href={currentQuestion.source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 self-start text-xs font-bold text-amber-600 hover:text-amber-700 underline underline-offset-4 bg-white px-3 py-2 rounded-xl border border-amber-100 shadow-sm transition-all"
+                >
+                  <FaBookOpen className="text-sm" />
+                  Consulter la documentation ({currentQuestion.source.title})
+                </a>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Actions principales (Valider / Suivant) */}
         <div className="mt-2 border-t border-slate-100 pt-5">
           {!isAnswerSubmitted ? (
             <button
