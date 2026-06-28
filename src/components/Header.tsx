@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import KilalaoLogo from "../assets/kilalao-logo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +45,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 z-100 w-full transition-all duration-300 bg-white border-none shadow-lg h-16">
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
         <a href="/" className="text-xs font-semibold tracking-wide">
-          <span>Gasikarako</span>
+          <img className="w-25" src={KilalaoLogo} alt="logo image" />
         </a>
 
         <nav className="hidden md:flex items-center space-x-7">

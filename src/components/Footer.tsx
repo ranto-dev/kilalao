@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import * as Icons from "react-icons/fa6";
 import { footerLinks, socialLinks } from "../data/footerLinks";
+import KilalaoLogo from "../assets/kilalao-logo.png";
 
 const Footer = () => {
   const currentYear = 2026;
@@ -21,9 +22,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-5 flex flex-col gap-4">
             <div className="flex items-center gap-2.5">
-              <span className="text-xl font-black text-slate-900 tracking-tight">
-                Gasikarako <span className="text-amber-600">?</span>
-              </span>
+              <a href="/" className="text-xs font-semibold tracking-wide">
+                <img className="w-25" src={KilalaoLogo} alt="logo image" />
+              </a>
             </div>
             <p className="text-sm text-slate-500 leading-relaxed max-w-sm">
               Un projet open-source et éducatif dédié à la valorisation du
@@ -36,7 +37,7 @@ const Footer = () => {
             <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400">
               Navigation
             </h4>
-            <ul className="grid grid-cols-2 md:grid-cols-1 gap-x-4 gap-y-2">
+            <ul className="grid grid-cols-2 md:grid-cols-2 gap-x-4 gap-y-2">
               {footerLinks.map((link, index) => (
                 <li key={index}>
                   <a
@@ -85,7 +86,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="font-bold text-slate-800 hover:text-amber-600 transition-colors"
             >
-              ranto andrianandraina
+              Ranto Andrianandraina
             </a>{" "}
             .
           </p>
@@ -93,7 +94,7 @@ const Footer = () => {
           <div className="inline-flex items-center gap-1.5 text-xs text-slate-400">
             <span>Fait avec</span>
             <Icons.FaHeart className="text-rose-500 animate-pulse text-[10px]" />
-            <span>pour la Grande Île</span>
+            <span>pour Madagascar</span>
           </div>
         </div>
       </div>
