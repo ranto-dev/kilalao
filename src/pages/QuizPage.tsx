@@ -2,13 +2,22 @@ import React, { useState, useEffect } from "react";
 import QuizGame from "../components/QuizGame";
 import baobabBg from "../assets/alle_de_baobab.png";
 
+// Interface mise à jour pour correspondre exactement aux données de Kilalao
 interface Quiz {
+  id: number;
+  category: string;
+  difficulty: string;
   question: string;
   reponses_propose: string[];
   response: string;
+  explanation: string;
+  source: {
+    title: string;
+    url: string;
+  };
 }
 
-// Algorithme de Fisher-Yates
+// Algorithme de Fisher-Yates (Typé proprement avec la nouvelle interface Quiz)
 const shuffleArray = (array: Quiz[]): Quiz[] => {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {
