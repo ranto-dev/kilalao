@@ -4,29 +4,47 @@
 
 > 🎮 **Testez vos connaissances sur la Grande Île à travers une expérience de quiz fun, visuelle et dynamique !**
 
-**Kilalao** est une application web interactive conçue pour offrir une **expérience utilisateur exceptionnelle**. Mêlant éducation, culture et mécanismes de _gamification_, le projet arbore un design ultra-moderne, fluide et entièrement réactif.
+<p>
+    <b>Kilalao</b> est une application de quiz immersive, ludique et hautement interactive dédiée à la découverte de l'histoire, la culture, la biodiversité et les mystères de Madagascar.
+</p>
+
+<div>
+ <img src="https://img.shields.io/badge/React-18%2B-blue?logo=react" alt="React"/>
+ <img src="https://img.shields.io/badge/TypeScript-5.0%2B-blue?logo=typescript" alt="TypeScript" />
+ <img src="https://img.shields.io/badge/Tailwind_CSS-3.4%2B-38B2AC?logo=tailwind-css" alt="Tailwind" />
+ <img src="https://img.shields.io/badge/License-MIT-green" alt="License" />
+</div>
+
+<br />
+
+L'application implémente une architecture moderne combinant :
+
+- Une **gestion d'état robuste** pour le cycle de vie du quiz (moteur de jeu)
+- Des **algorithmes de brassage sans biais** pour renouveler l'expérience
+- Des animations cinématiques fluides basées sur `framer-motion`
+- Une approche de design épurée de type **White Premium** entièrement responsive
 
 ## 🎯 Objectifs du projet
 
-- **Valoriser la culture malgache :** Découvrir l'histoire, la biodiversité, les traditions et les secrets de Madagascar de manière ludique.
-- **Stimuler la curiosité :** Favoriser l'apprentissage par le jeu grâce à des sessions interactives rythmées.
-- **Garantir une UI/UX Premium :** Offrir une interface soignée "White Premium", des micro-interactions élégantes et des animations fluides.
-- **Démontrer le savoir-faire :** Illustrer le potentiel créatif et la rigueur technique du développement moderne.
+- **Valoriser la culture malgache :** Rendre l'apprentissage de l'histoire et des traditions de la Grande Île accessible et captivant.
+- **Stimuler la curiosité par la gamification :** Utiliser des mécaniques de jeu (chronomètre, feedbacks instantanés) pour ancrer les connaissances.
+- **Garantir une UI/UX d'exception :** Proposer des transitions soignées, des micro-interactions de boutons et une clarté visuelle absolue.
 
-## ✨ Fonctionnalités principales
+## ✨ Fonctionnalités Disponibles
 
-- 🔄 **Contenu évolutif :** Chargement dynamique des questions sourcées depuis un catalogue structuré.
-- ⏱️ **Défi chronométré :** Gestion du temps à 15 secondes par question pour pimenter le gameplay.
-- 🏅 **Bilan interactif :** Écran de fin animé avec résumé des performances et accès instantané aux corrections.
-- 💬 **Espace Communauté :** Intégration de témoignages dynamiques et d'un formulaire de feedback connecté.
-- ⚡ **Animations de pointe :** Transitions fluides gérées par Framer Motion pour un effet cinématique.
-- 📱 **100% Mobile-First :** Expérience parfaitement responsive, optimisée du smartphone à l'écran PC.
+- 🔄 **Génération dynamique :** Injection fluide des questions via un catalogue structuré au format JSON.
+- ⏱️ **Pression temporelle :** Chronomètre de 15 secondes par question avec abandon automatique à zéro.
+- 🏅 **Bilan interactif :** Écran de fin animé résumant les performances du joueur.
+- 💬 **Formulaire de Feedback :** Système de notation par étoiles interactives et de capture d'avis utilisateur en JSON, prêt pour API d'envoi d'emails.
+- 📱 **Mobile-First :** Expérience utilisateur fluide et optimisée nativement pour smartphone, tablette et grand écran.
 
-## 🧩 Stack technique
+## 🚀 Fonctionnalités à Venir
 
-L'application est propulsée par un écosystème moderne, performant et rigoureusement typé :
-
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=f60) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+- [ ] Support multilingue (Français, Malagasy, Anglais)
+- [ ] Mode Duel en temps réel (WebSockets)
+- [ ] Système de paliers et de succès débloquables (Badges)
+- [ ] Authentification des joueurs et classement général (Leaderboard)
+- [ ] Mode hors-ligne complet (PWA)
 
 ## 🤝 Contribuer
 
@@ -40,5 +58,5 @@ Les contributions, signalements de bugs et suggestions de nouvelles questions de
 
 ## 👨‍💻 Auteur
 
-Développé avec passion par [Ranto Andrianandraina](https://ranto-dev.vercel.app).  
+Développé avec passion par [Ranto Andrianandraina](https://ranto-dev.vercel.app).
 N'hésitez pas à me contacter pour échanger ou jeter un œil à mes autres projets !
