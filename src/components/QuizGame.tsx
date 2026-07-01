@@ -10,6 +10,7 @@ import {
   FaTrophy,
   FaXmark,
   FaBookOpen,
+  FaVolumeHigh,
 } from "react-icons/fa6";
 
 import tickTockSound from "../assets/music/stopwatch.m4a";
@@ -32,7 +33,7 @@ interface Quiz {
 interface QuizGameProps {
   quizzes: Quiz[];
   isGlobalMuted: boolean;
-  onRefreshQuestions: () => void; // Ajout de la fonction dans l'interface de types
+  onRefreshQuestions: () => void;
 }
 
 const QuizGame: React.FC<QuizGameProps> = ({
@@ -55,7 +56,83 @@ const QuizGame: React.FC<QuizGameProps> = ({
   const progressPercent =
     totalQuestions > 0 ? (currentQuestionIndex / totalQuestions) * 100 : 0;
 
-  // 1. GESTION DU CHRONO ET DU SON TICK-TOCK
+  // SYSTEME DE LECTURE VOCALE AMÉLIORÉ
+  const speakQuestion = (text: string) => {
+    if (!("speechSynthesis" in window)) {
+      console.warn("La synthèse vocale n'est pas supportée par ce navigateur.");
+      return;
+    }
+
+    // Arrêter toute lecture en cours pour éviter les chevauchements
+    window.speechSynthesis.cancel();
+
+    // Ne rien faire si le mode muet est activé
+    if (isGlobalMuted) return;
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "fr-FR"; // Configuration en Français
+    utterance.rate = 1.0; // Vitesse normale
+    utterance.pitch = 1.0; // Tonalité
+
+    // Récupération dynamique et sécurisée des voix du système
+    const voices = window.speechSynthesis.getVoices();
+    const frenchVoice = voices.find(
+      (voice) => voice.lang === "fr-FR" || voice.lang.startsWith("fr"),
+    );
+
+    if (frenchVoice) {
+      utterance.voice = frenchVoice;
+    }
+
+    utterance.onerror = (e) => {
+      console.error("Erreur d'élocution Web Speech API:", e.error);
+    };
+
+    window.speechSynthesis.speak(utterance);
+  };
+
+  // Écouteur obligatoire pour charger les voix système de manière asynchrone (Raison majeure du silence initial)
+  useEffect(() => {
+    if (!("speechSynthesis" in window)) return;
+
+    const handleVoicesChanged = () => {
+      window.speechSynthesis.getVoices();
+    };
+
+    window.speechSynthesis.onvoiceschanged = handleVoicesChanged;
+
+    return () => {
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.onvoiceschanged = null;
+      }
+    };
+  }, []);
+
+  // Lecture automatique de la question à chaque changement d'index
+  useEffect(() => {
+    if (currentQuestion && !quizFinished && !isGlobalMuted) {
+      const voiceTimer = setTimeout(() => {
+        speakQuestion(currentQuestion.question);
+      }, 400); // Un léger délai permet à l'UI de respirer et d'activer l'audio
+      return () => clearTimeout(voiceTimer);
+    }
+  }, [currentQuestionIndex, quizFinished]);
+
+  // Gestion de la mise en sourdine en temps réel si clic sur le bouton Mute global
+  useEffect(() => {
+    if (isGlobalMuted && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    } else if (
+      !isGlobalMuted &&
+      currentQuestion &&
+      !isAnswerSubmitted &&
+      !quizFinished
+    ) {
+      speakQuestion(currentQuestion.question);
+    }
+  }, [isGlobalMuted]);
+
+  // GESTION DU CHRONO ET DU SON TICK-TOCK
   useEffect(() => {
     if (quizFinished || isAnswerSubmitted || !currentQuestion) {
       stopChronoSound();
@@ -73,11 +150,12 @@ const QuizGame: React.FC<QuizGameProps> = ({
     chronoAudioRef.current
       .play()
       .catch((err: unknown) =>
-        console.log("Audio en attente d'interaction", err),
+        console.log("Audio en attente d'interaction utilisateur", err),
       );
 
     if (questionTimeLeft === 0) {
       stopChronoSound();
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel(); // Coupe la parole si temps écoulé
       setIsAnswerSubmitted(true);
       playEffect(wrongSound);
       return;
@@ -110,17 +188,23 @@ const QuizGame: React.FC<QuizGameProps> = ({
     }
   }, [currentQuestionIndex, quizFinished]);
 
+  // Sons de fin de partie
   useEffect(() => {
     if (quizFinished) {
       stopChronoSound();
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
       const isWin = score >= totalQuestions / 2;
       playEffect(isWin ? winFinalSound : loseFinalSound, 0.4);
     }
   }, [quizFinished, score, totalQuestions]);
 
+  // Nettoyage au démontage
   useEffect(() => {
     return () => {
       stopChronoSound();
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
     };
   }, []);
 
@@ -147,6 +231,7 @@ const QuizGame: React.FC<QuizGameProps> = ({
   const handleSubmitAnswer = () => {
     if (selectedAnswer && currentQuestion) {
       stopChronoSound();
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel(); // Coupe la voix dès qu'on valide
       setIsAnswerSubmitted(true);
 
       if (selectedAnswer === currentQuestion.response) {
@@ -171,7 +256,6 @@ const QuizGame: React.FC<QuizGameProps> = ({
   };
 
   const handleRestart = () => {
-    // 1. Remise à zéro complète des états locaux du jeu
     setCurrentQuestionIndex(0);
     setSelectedAnswer(null);
     setScore(0);
@@ -179,10 +263,10 @@ const QuizGame: React.FC<QuizGameProps> = ({
     setQuestionTimeLeft(15);
     setQuizFinished(false);
 
-    // 2. Déclenche le rafraîchissement des 10 questions du composant parent
     onRefreshQuestions();
   };
 
+  // ECRAN DE FIN
   if (quizFinished) {
     const isWin = score >= totalQuestions / 2;
     return (
@@ -253,6 +337,7 @@ const QuizGame: React.FC<QuizGameProps> = ({
   const isUserWrong =
     isAnswerSubmitted && selectedAnswer !== currentQuestion?.response;
 
+  // RENDU DU QUIZ
   return (
     <div className="w-full max-w-xl mx-auto bg-white border border-slate-100 rounded-3xl shadow-2xl overflow-hidden select-none relative">
       <div className="w-full h-1.5 bg-slate-100 relative">
@@ -295,12 +380,35 @@ const QuizGame: React.FC<QuizGameProps> = ({
           </div>
         </div>
 
-        <div className="min-h-[70px] flex items-center justify-center">
-          <h3 className="text-lg md:text-xl font-bold text-slate-900 text-center leading-snug">
+        {/* CONTAINER QUESTION + BOUTON LECTURE MANUELLE */}
+        <div className="min-h-[70px] flex items-center justify-center gap-4 px-2">
+          <h3 className="text-lg md:text-xl font-bold text-slate-900 text-center leading-snug flex-1">
             {currentQuestion?.question}
           </h3>
+          <button
+            onClick={() => speakQuestion(currentQuestion?.question || "")}
+            disabled={isGlobalMuted}
+            className={`p-2.5 rounded-xl border transition-all flex items-center justify-center ${
+              isGlobalMuted
+                ? "bg-slate-50 border-slate-200 text-slate-300 cursor-not-allowed"
+                : "bg-amber-50 border-amber-200 text-amber-600 hover:bg-amber-100 hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
+            }`}
+            title={
+              isGlobalMuted
+                ? "Activez le son global pour écouter"
+                : "Écouter la question"
+            }
+          >
+            <FaVolumeHigh
+              className={
+                !isGlobalMuted && !isAnswerSubmitted ? "animate-pulse" : ""
+              }
+              size={16}
+            />
+          </button>
         </div>
 
+        {/* OPTIONS DE REPONSES */}
         <div className="flex flex-col gap-3 w-full">
           <AnimatePresence mode="wait">
             {currentQuestion?.reponses_propose.map((answer, index) => {
@@ -341,6 +449,7 @@ const QuizGame: React.FC<QuizGameProps> = ({
           </AnimatePresence>
         </div>
 
+        {/* DETAILS ET EXPLICATIONS */}
         <AnimatePresence>
           {isAnswerSubmitted && (
             <motion.div
@@ -374,6 +483,7 @@ const QuizGame: React.FC<QuizGameProps> = ({
           )}
         </AnimatePresence>
 
+        {/* ACTIONS FOOTER */}
         <div className="mt-2 border-t border-slate-100 pt-5">
           {!isAnswerSubmitted ? (
             <button
@@ -389,7 +499,7 @@ const QuizGame: React.FC<QuizGameProps> = ({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               onClick={handleNextQuestion}
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm tracking-wide rounded-xl shadow-lg shadow-slate-900/10 active:scale-98 transition-all duration-200"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm tracking-wide rounded-xl shadow-lg shadow-slate-900/10 active:scale-98 transition-all duration-200 cursor-pointer"
             >
               <span>
                 {currentQuestionIndex < totalQuestions - 1
