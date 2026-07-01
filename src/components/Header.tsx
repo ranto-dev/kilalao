@@ -44,7 +44,8 @@ const Header = () => {
     { url: "contact", link: "Contact" },
   ];
 
-  const handleStartGameSound = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  // CORRECTION ICI : Retrait du paramètre 'e' non utilisé
+  const handleStartGameSound = () => {
     const audio = new Audio(startSound);
     audio.volume = 0.4;
     audio
@@ -119,7 +120,7 @@ const Header = () => {
                 </a>
               ))}
 
-              {/* ACCORDÉON SERVICES MOBILE (Correction TypeScript & Couleurs) */}
+              {/* ACCORDÉON SERVICES MOBILE */}
               <div className="py-2 border-b border-slate-50">
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
