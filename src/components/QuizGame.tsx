@@ -32,9 +32,14 @@ interface Quiz {
 interface QuizGameProps {
   quizzes: Quiz[];
   isGlobalMuted: boolean;
+  onRefreshQuestions: () => void; // Ajout de la fonction dans l'interface de types
 }
 
-const QuizGame: React.FC<QuizGameProps> = ({ quizzes, isGlobalMuted }) => {
+const QuizGame: React.FC<QuizGameProps> = ({
+  quizzes,
+  isGlobalMuted,
+  onRefreshQuestions,
+}) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [score, setScore] = useState(0);
@@ -62,7 +67,6 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes, isGlobalMuted }) => {
       chronoAudioRef.current.loop = true;
     }
 
-    // Assigner l'état de sourdine global
     chronoAudioRef.current.muted = isGlobalMuted;
     chronoAudioRef.current.volume = 0.25;
 
@@ -94,7 +98,6 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes, isGlobalMuted }) => {
     isGlobalMuted,
   ]);
 
-  // Synchronisation dynamique si l'utilisateur clique sur mute pendant le décompte
   useEffect(() => {
     if (chronoAudioRef.current) {
       chronoAudioRef.current.muted = isGlobalMuted;
@@ -129,7 +132,7 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes, isGlobalMuted }) => {
   };
 
   const playEffect = (src: string, volume = 0.35) => {
-    if (isGlobalMuted) return; // Ne pas jouer d'effets sonores si muet
+    if (isGlobalMuted) return;
     const effect = new Audio(src);
     effect.volume = volume;
     effect.play().catch((err: unknown) => console.log(err));
@@ -168,12 +171,16 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes, isGlobalMuted }) => {
   };
 
   const handleRestart = () => {
+    // 1. Remise à zéro complète des états locaux du jeu
     setCurrentQuestionIndex(0);
     setSelectedAnswer(null);
     setScore(0);
     setIsAnswerSubmitted(false);
     setQuestionTimeLeft(15);
     setQuizFinished(false);
+
+    // 2. Déclenche le rafraîchissement des 10 questions du composant parent
+    onRefreshQuestions();
   };
 
   if (quizFinished) {
@@ -227,7 +234,7 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes, isGlobalMuted }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full mt-2">
             <button
               onClick={handleRestart}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-emerald-500 hover:bg-emerald-600 active:scale-98 text-white font-bold text-sm rounded-xl transition-all shadow-md shadow-emerald-500/10"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-emerald-500 hover:bg-emerald-600 active:scale-98 text-white font-bold text-sm rounded-xl transition-all shadow-md shadow-emerald-500/10 cursor-pointer"
             >
               <FaArrowRotateLeft className="text-xs" /> Recommencer
             </button>

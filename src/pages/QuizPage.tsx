@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import QuizGame from "../components/QuizGame";
 import baobabBg from "../assets/alle_de_baobab.png";
 
@@ -27,9 +27,24 @@ const shuffleArray = (array: Quiz[]): Quiz[] => {
 };
 
 const QuizzBody: React.FC<QuizzBodyProps> = ({ isGlobalMuted }) => {
-  const [selectedQuizzes, setSelectedQuizzes] = useState<Quiz[]>([]);
+  const [allQuizzes, setAllQuizzes] = useState<Quiz[]>([]); // Stocke tout le catalogue brut
+  const [selectedQuizzes, setSelectedQuizzes] = useState<Quiz[]>([]); // Les 10 questions de la session
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Fonction pour mélanger et piocher 10 nouvelles questions à partir du catalogue existant
+  const refreshQuestions = useCallback(() => {
+    if (allQuizzes.length > 0) {
+      setIsLoading(true);
+      const shuffled = shuffleArray(allQuizzes);
+      setSelectedQuizzes(shuffled.slice(0, 10));
+
+      // Petit effet de transition fluide pour le rechargement des questions
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 400);
+    }
+  }, [allQuizzes]);
 
   useEffect(() => {
     let isMounted = true;
@@ -42,6 +57,7 @@ const QuizzBody: React.FC<QuizzBodyProps> = ({ isGlobalMuted }) => {
       .then((data: Quiz[]) => {
         if (isMounted) {
           if (data && data.length > 0) {
+            setAllQuizzes(data); // Sauvegarde globale du catalogue
             const shuffled = shuffleArray(data);
             setSelectedQuizzes(shuffled.slice(0, 10));
           } else {
@@ -50,7 +66,7 @@ const QuizzBody: React.FC<QuizzBodyProps> = ({ isGlobalMuted }) => {
           setIsLoading(false);
         }
       })
-      .catch((err) => {
+      .catch((err: unknown) => {
         console.error(err);
         if (isMounted) {
           setError("Une erreur est survenue lors du chargement des questions.");
@@ -83,7 +99,11 @@ const QuizzBody: React.FC<QuizzBodyProps> = ({ isGlobalMuted }) => {
         </div>
       ) : (
         selectedQuizzes.length > 0 && (
-          <QuizGame quizzes={selectedQuizzes} isGlobalMuted={isGlobalMuted} />
+          <QuizGame
+            quizzes={selectedQuizzes}
+            isGlobalMuted={isGlobalMuted}
+            onRefreshQuestions={refreshQuestions} // Transmission du prop de rafraîchissement
+          />
         )
       )}
     </div>
