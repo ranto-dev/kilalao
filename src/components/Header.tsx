@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown, Trophy, BookOpen, Sparkles } from "lucide-react"; // Import des icônes pour les services
 import { motion, AnimatePresence } from "framer-motion";
 import KilalaoLogo from "../assets/kilalao-logo.png";
+import startSound from "../assets/music/commencerMusic.mp3";
 
 // Interface pour typer proprement tes services
 interface ServiceItem {
@@ -43,6 +44,14 @@ const Header = () => {
     { url: "contact", link: "Contact" },
   ];
 
+  const handleStartGameSound = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const audio = new Audio(startSound);
+    audio.volume = 0.4;
+    audio
+      .play()
+      .catch((err) => console.log("Audio bloqué ou introuvable", err));
+  };
+
   return (
     <header className="fixed top-0 left-0 z-50 w-full transition-all duration-300 bg-white border-none shadow-lg h-16">
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
@@ -71,6 +80,7 @@ const Header = () => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
             href="/commencer-un-quiz"
+            onClick={handleStartGameSound}
             className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold text-xs tracking-wide rounded-full shadow-lg shadow-amber-600/30 hover:shadow-amber-500/40 transition-all ease-in duration-50"
           >
             <span>Commencer maintenant</span>

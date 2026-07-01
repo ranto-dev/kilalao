@@ -2,8 +2,14 @@ import { FaRegCirclePlay, FaCircleQuestion } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import baobabBg from "../assets/alle_de_baobab.png";
 import { containerVariants, itemVariants } from "../@types/variants";
+import startSound from "../assets/music/commencerMusic.mp3";
 
 const Hero = () => {
+  const handlePlaySound = () => {
+    const audio = new Audio(startSound);
+    audio.volume = 0.4;
+    audio.play().catch((err) => console.log(err));
+  };
   return (
     <header
       id="accueil"
@@ -44,6 +50,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
             href="/commencer-un-quiz"
+            onClick={handlePlaySound}
             className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-sm tracking-wide rounded-full shadow-lg shadow-amber-600/30 hover:shadow-amber-500/40 transition-all ease-in duration-50"
           >
             <FaRegCirclePlay className="text-lg" />

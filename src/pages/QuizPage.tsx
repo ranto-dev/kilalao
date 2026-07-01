@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import QuizGame from "../components/QuizGame";
 import baobabBg from "../assets/alle_de_baobab.png";
 
-// Interface mise à jour pour correspondre exactement aux données de Kilalao
 interface Quiz {
   id: number;
   category: string;
@@ -11,13 +10,13 @@ interface Quiz {
   reponses_propose: string[];
   response: string;
   explanation: string;
-  source: {
-    title: string;
-    url: string;
-  };
+  source: { title: string; url: string };
 }
 
-// Algorithme de Fisher-Yates (Typé proprement avec la nouvelle interface Quiz)
+interface QuizzBodyProps {
+  isGlobalMuted: boolean;
+}
+
 const shuffleArray = (array: Quiz[]): Quiz[] => {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {
@@ -27,27 +26,24 @@ const shuffleArray = (array: Quiz[]): Quiz[] => {
   return newArray;
 };
 
-const QuizzBody: React.FC = () => {
+const QuizzBody: React.FC<QuizzBodyProps> = ({ isGlobalMuted }) => {
   const [selectedQuizzes, setSelectedQuizzes] = useState<Quiz[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let isMounted = true;
-
     fetch("/quiz-patterns.json")
       .then((response) => {
-        if (!response.ok) {
+        if (!response.ok)
           throw new Error("Impossible de récupérer les questions du quiz.");
-        }
         return response.json();
       })
       .then((data: Quiz[]) => {
         if (isMounted) {
           if (data && data.length > 0) {
             const shuffled = shuffleArray(data);
-            const tenQuizzes = shuffled.slice(0, 10);
-            setSelectedQuizzes(tenQuizzes);
+            setSelectedQuizzes(shuffled.slice(0, 10));
           } else {
             setError("Le catalogue de questions est vide.");
           }
@@ -86,7 +82,9 @@ const QuizzBody: React.FC = () => {
           <p className="text-sm font-bold text-rose-400">{error}</p>
         </div>
       ) : (
-        selectedQuizzes.length > 0 && <QuizGame quizzes={selectedQuizzes} />
+        selectedQuizzes.length > 0 && (
+          <QuizGame quizzes={selectedQuizzes} isGlobalMuted={isGlobalMuted} />
+        )
       )}
     </div>
   );

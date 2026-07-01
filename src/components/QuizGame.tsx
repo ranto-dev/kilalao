@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -9,10 +9,15 @@ import {
   FaArrowRight,
   FaTrophy,
   FaXmark,
-  FaBookOpen, // Nouvelle icône pour la doc
+  FaBookOpen,
 } from "react-icons/fa6";
 
-// Interface alignée sur tes données réelles
+import tickTockSound from "../assets/music/stopwatch.m4a";
+import correctSound from "../assets/music/successMusic.m4a";
+import wrongSound from "../assets/music/failMusic.m4a";
+import winFinalSound from "../assets/music/victory.m4a";
+import loseFinalSound from "../assets/music/failMusic.m4a";
+
 interface Quiz {
   id: number;
   category: string;
@@ -21,17 +26,15 @@ interface Quiz {
   reponses_propose: string[];
   response: string;
   explanation: string;
-  source: {
-    title: string;
-    url: string;
-  };
+  source: { title: string; url: string };
 }
 
 interface QuizGameProps {
   quizzes: Quiz[];
+  isGlobalMuted: boolean;
 }
 
-const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
+const QuizGame: React.FC<QuizGameProps> = ({ quizzes, isGlobalMuted }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [score, setScore] = useState(0);
@@ -39,17 +42,40 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
   const [questionTimeLeft, setQuestionTimeLeft] = useState(15);
   const [quizFinished, setQuizFinished] = useState(false);
 
+  const chronoAudioRef = useRef<HTMLAudioElement | null>(null);
+
   const currentQuestion =
     quizzes.length > 0 ? quizzes[currentQuestionIndex] : null;
   const totalQuestions = quizzes.length;
   const progressPercent =
     totalQuestions > 0 ? (currentQuestionIndex / totalQuestions) * 100 : 0;
 
+  // 1. GESTION DU CHRONO ET DU SON TICK-TOCK
   useEffect(() => {
-    if (quizFinished || isAnswerSubmitted || !currentQuestion) return;
+    if (quizFinished || isAnswerSubmitted || !currentQuestion) {
+      stopChronoSound();
+      return;
+    }
+
+    if (!chronoAudioRef.current) {
+      chronoAudioRef.current = new Audio(tickTockSound);
+      chronoAudioRef.current.loop = true;
+    }
+
+    // Assigner l'état de sourdine global
+    chronoAudioRef.current.muted = isGlobalMuted;
+    chronoAudioRef.current.volume = 0.25;
+
+    chronoAudioRef.current
+      .play()
+      .catch((err: unknown) =>
+        console.log("Audio en attente d'interaction", err),
+      );
 
     if (questionTimeLeft === 0) {
+      stopChronoSound();
       setIsAnswerSubmitted(true);
+      playEffect(wrongSound);
       return;
     }
 
@@ -57,14 +83,57 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
       setQuestionTimeLeft((prev) => prev - 1);
     }, 1000);
 
-    return () => clearInterval(timer);
-  }, [questionTimeLeft, isAnswerSubmitted, quizFinished, currentQuestion]);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [
+    questionTimeLeft,
+    isAnswerSubmitted,
+    quizFinished,
+    currentQuestion,
+    isGlobalMuted,
+  ]);
+
+  // Synchronisation dynamique si l'utilisateur clique sur mute pendant le décompte
+  useEffect(() => {
+    if (chronoAudioRef.current) {
+      chronoAudioRef.current.muted = isGlobalMuted;
+    }
+  }, [isGlobalMuted]);
 
   useEffect(() => {
     if (!quizFinished) {
       setQuestionTimeLeft(15);
     }
   }, [currentQuestionIndex, quizFinished]);
+
+  useEffect(() => {
+    if (quizFinished) {
+      stopChronoSound();
+      const isWin = score >= totalQuestions / 2;
+      playEffect(isWin ? winFinalSound : loseFinalSound, 0.4);
+    }
+  }, [quizFinished, score, totalQuestions]);
+
+  useEffect(() => {
+    return () => {
+      stopChronoSound();
+    };
+  }, []);
+
+  const stopChronoSound = () => {
+    if (chronoAudioRef.current) {
+      chronoAudioRef.current.pause();
+      chronoAudioRef.current.currentTime = 0;
+    }
+  };
+
+  const playEffect = (src: string, volume = 0.35) => {
+    if (isGlobalMuted) return; // Ne pas jouer d'effets sonores si muet
+    const effect = new Audio(src);
+    effect.volume = volume;
+    effect.play().catch((err: unknown) => console.log(err));
+  };
 
   const handleAnswerSelection = (answer: string) => {
     if (!isAnswerSubmitted) {
@@ -73,10 +142,15 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
   };
 
   const handleSubmitAnswer = () => {
-    if (selectedAnswer) {
+    if (selectedAnswer && currentQuestion) {
+      stopChronoSound();
       setIsAnswerSubmitted(true);
-      if (selectedAnswer === currentQuestion?.response) {
+
+      if (selectedAnswer === currentQuestion.response) {
         setScore((prev) => prev + 1);
+        playEffect(correctSound);
+      } else {
+        playEffect(wrongSound);
       }
     }
   };
@@ -155,15 +229,13 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
               onClick={handleRestart}
               className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-emerald-500 hover:bg-emerald-600 active:scale-98 text-white font-bold text-sm rounded-xl transition-all shadow-md shadow-emerald-500/10"
             >
-              <FaArrowRotateLeft className="text-xs" />
-              Recommencer
+              <FaArrowRotateLeft className="text-xs" /> Recommencer
             </button>
             <Link
               to="/"
               className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-slate-900 hover:bg-slate-800 active:scale-98 text-white font-bold text-sm rounded-xl transition-all shadow-md shadow-slate-900/10"
             >
-              <FaHouse className="text-xs" />
-              Menu principal
+              <FaHouse className="text-xs" /> Menu principal
             </Link>
           </div>
         </motion.div>
@@ -171,18 +243,8 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
     );
   }
 
-  if (!currentQuestion) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[300px] text-slate-500 font-medium">
-        <div className="animate-spin rounded-full h-8 w-8 border-2 border-amber-500 border-t-transparent mb-4" />
-        Chargement des questions...
-      </div>
-    );
-  }
-
-  // Vérification de l'exactitude de la réponse après soumission
   const isUserWrong =
-    isAnswerSubmitted && selectedAnswer !== currentQuestion.response;
+    isAnswerSubmitted && selectedAnswer !== currentQuestion?.response;
 
   return (
     <div className="w-full max-w-xl mx-auto bg-white border border-slate-100 rounded-3xl shadow-2xl overflow-hidden select-none relative">
@@ -196,7 +258,6 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
       </div>
 
       <div className="p-6 md:p-8 flex flex-col gap-6">
-        {/* En-tête avec Catégorie, Difficulté et Timer */}
         <div className="flex justify-between items-start border-b border-slate-100 pb-4">
           <div className="flex flex-col gap-1.5">
             <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
@@ -204,20 +265,16 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
             </span>
             <div className="flex gap-2">
               <span className="px-2.5 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 text-[10px] font-bold rounded-full uppercase">
-                {currentQuestion.category}
+                {currentQuestion?.category}
               </span>
               <span className="px-2.5 py-0.5 bg-slate-100 text-slate-600 text-[10px] font-bold rounded-full uppercase">
-                {currentQuestion.difficulty}
+                {currentQuestion?.difficulty}
               </span>
             </div>
           </div>
 
           <div
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-mono font-bold text-sm border transition-all ${
-              questionTimeLeft > 5
-                ? "bg-emerald-50 border-emerald-200 text-emerald-600"
-                : "bg-rose-50 border-rose-200 text-rose-600 animate-pulse"
-            }`}
+            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-mono font-bold text-sm border transition-all ${questionTimeLeft > 5 ? "bg-emerald-50 border-emerald-200 text-emerald-600" : "bg-rose-50 border-rose-200 text-rose-600 animate-pulse"}`}
           >
             <FaStopwatch
               className={questionTimeLeft <= 5 ? "animate-spin" : ""}
@@ -233,14 +290,13 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
 
         <div className="min-h-[70px] flex items-center justify-center">
           <h3 className="text-lg md:text-xl font-bold text-slate-900 text-center leading-snug">
-            {currentQuestion.question}
+            {currentQuestion?.question}
           </h3>
         </div>
 
-        {/* Liste des réponses */}
         <div className="flex flex-col gap-3 w-full">
           <AnimatePresence mode="wait">
-            {currentQuestion.reponses_propose.map((answer, index) => {
+            {currentQuestion?.reponses_propose.map((answer, index) => {
               const isSelected = selectedAnswer === answer;
               const isCorrectAnswer = answer === currentQuestion.response;
 
@@ -248,16 +304,15 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
                 "bg-slate-50/50 border-slate-200 text-slate-800 hover:bg-slate-100 hover:border-slate-300";
 
               if (isAnswerSubmitted) {
-                if (isCorrectAnswer) {
+                if (isCorrectAnswer)
                   btnStyle =
                     "bg-emerald-500 border-emerald-500 text-white font-bold shadow-md shadow-emerald-500/20";
-                } else if (isSelected) {
+                else if (isSelected)
                   btnStyle =
                     "bg-rose-500 border-rose-500 text-white font-bold shadow-md shadow-rose-500/20";
-                } else {
+                else
                   btnStyle =
                     "bg-slate-50 border-slate-100 text-slate-400 opacity-60";
-                }
               } else if (isSelected) {
                 btnStyle =
                   "bg-amber-600 border-amber-600 text-white font-bold shadow-lg shadow-amber-600/10";
@@ -270,9 +325,7 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
                   whileTap={!isAnswerSubmitted ? { scale: 0.99 } : {}}
                   onClick={() => handleAnswerSelection(answer)}
                   disabled={isAnswerSubmitted}
-                  className={`w-full text-left px-5 py-4 border rounded-2xl text-sm md:text-base font-medium transition-all duration-200 flex items-center justify-between ${btnStyle} ${
-                    isAnswerSubmitted ? "cursor-not-allowed" : "cursor-pointer"
-                  }`}
+                  className={`w-full text-left px-5 py-4 border rounded-2xl text-sm md:text-base font-medium transition-all duration-200 flex items-center justify-between ${btnStyle} ${isAnswerSubmitted ? "cursor-not-allowed" : "cursor-pointer"}`}
                 >
                   <span>{answer}</span>
                 </motion.button>
@@ -281,18 +334,13 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
           </AnimatePresence>
         </div>
 
-        {/* Section Explication & Documentation Dynamique */}
         <AnimatePresence>
           {isAnswerSubmitted && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className={`p-4 rounded-2xl border text-sm flex flex-col gap-3 mt-2 ${
-                isUserWrong
-                  ? "bg-rose-50/70 border-rose-100 text-rose-900"
-                  : "bg-emerald-50/70 border-emerald-100 text-emerald-900"
-              }`}
+              className={`p-4 rounded-2xl border text-sm flex flex-col gap-3 mt-2 ${isUserWrong ? "bg-rose-50/70 border-rose-100 text-rose-900" : "bg-emerald-50/70 border-emerald-100 text-emerald-900"}`}
             >
               <div>
                 <span className="font-bold block mb-0.5">
@@ -301,37 +349,30 @@ const QuizGame: React.FC<QuizGameProps> = ({ quizzes }) => {
                     : "🎉 Bonne réponse !"}
                 </span>
                 <p className="text-slate-600 font-medium leading-relaxed">
-                  {currentQuestion.explanation}
+                  {currentQuestion?.explanation}
                 </p>
               </div>
-
-              {/* Le fameux bouton de documentation qui s'affiche s'il a tort */}
-              {isUserWrong && currentQuestion.source?.url && (
+              {isUserWrong && currentQuestion?.source?.url && (
                 <a
                   href={currentQuestion.source.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 self-start text-xs font-bold text-amber-600 hover:text-amber-700 underline underline-offset-4 bg-white px-3 py-2 rounded-xl border border-amber-100 shadow-sm transition-all"
                 >
-                  <FaBookOpen className="text-sm" />
-                  Consulter la documentation ({currentQuestion.source.title})
+                  <FaBookOpen className="text-sm" /> Consulter la documentation
+                  ({currentQuestion.source.title})
                 </a>
               )}
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Actions principales (Valider / Suivant) */}
         <div className="mt-2 border-t border-slate-100 pt-5">
           {!isAnswerSubmitted ? (
             <button
               onClick={handleSubmitAnswer}
               disabled={!selectedAnswer}
-              className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 font-bold text-sm tracking-wide rounded-xl shadow-lg transition-all duration-200 active:scale-98 ${
-                selectedAnswer
-                  ? "bg-amber-600 hover:bg-amber-700 text-white shadow-amber-600/20"
-                  : "bg-slate-100 text-slate-400 cursor-not-allowed shadow-none"
-              }`}
+              className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 font-bold text-sm tracking-wide rounded-xl shadow-lg transition-all duration-200 active:scale-98 ${selectedAnswer ? "bg-amber-600 hover:bg-amber-700 text-white shadow-amber-600/20" : "bg-slate-100 text-slate-400 cursor-not-allowed shadow-none"}`}
             >
               <FaRegCircleCheck className="text-base" />
               <span>Valider ma réponse</span>
