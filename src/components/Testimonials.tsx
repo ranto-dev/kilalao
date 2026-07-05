@@ -9,11 +9,10 @@ const Testimonials = () => {
       id="testimonials"
       className="relative w-full min-h-screen flex items-center justify-center bg-white px-6 py-24 overflow-hidden select-none"
     >
-      {/* Fond en pointillés premium light */}
       <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-70 pointer-events-none" />
 
       <div className="relative w-full max-w-7xl mx-auto flex flex-col gap-16">
-        {/* En-tête de la section */}
+
         <div className="flex flex-col gap-4 text-center items-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 border border-amber-200/60 rounded-full text-xs font-bold text-amber-700 w-fit uppercase tracking-wider">
             ⭐️ La communauté s'exprime
@@ -30,7 +29,6 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Grille des témoignages */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
