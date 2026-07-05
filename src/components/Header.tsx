@@ -114,53 +114,19 @@ const Header = () => {
                   key={index}
                   href={`#${menu.url}`}
                   onClick={() => setIsOpen(false)}
-                  className="text-xs font-bold text-slate-700 hover:text-amber-600 transition-colors py-2 border-b border-slate-50"
+                  className="text-xs font-bold text-center text-slate-700 hover:text-amber-600 transition-colors py-2 border-b border-slate-50"
                 >
                   {menu.link}
                 </a>
               ))}
 
-              {/* ACCORDÉON SERVICES MOBILE */}
-              <div className="py-2 border-b border-slate-50">
-                <button
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className="w-full text-xs font-bold text-slate-700 hover:text-amber-600 flex items-center justify-between py-1 outline-none cursor-pointer"
-                >
-                  <span>Nos Modes de Jeu</span>
-                  <ChevronDown
-                    size={14}
-                    className={`transition-transform duration-300 ${isServicesOpen ? "rotate-180 text-amber-600" : ""}`}
-                  />
-                </button>
-
-                <AnimatePresence>
-                  {isServicesOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="overflow-hidden pl-3 mt-2 space-y-1 bg-slate-50/50 rounded-xl"
-                    >
-                      {servicesItems.map((service) => (
-                        <a
-                          key={service.slug}
-                          href={`/services/${service.slug}`}
-                          onClick={() => {
-                            setIsOpen(false);
-                            setIsServicesOpen(false);
-                          }}
-                          className="flex items-center gap-2.5 py-2.5 text-[11px] font-semibold text-slate-500 hover:text-amber-600 transition-colors"
-                        >
-                          <span className="text-slate-400 shrink-0">
-                            {service.icon}
-                          </span>
-                          <span>{service.title}</span>
-                        </a>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+              <a
+                href="/commencer-un-quiz"
+                onClick={handleStartGameSound}
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold text-xs tracking-wide rounded-full shadow-lg shadow-amber-600/30 hover:shadow-amber-500/40 transition-all ease-in duration-50"
+              >
+                <span>Commencer maintenant</span>
+              </a>
             </nav>
           </motion.div>
         )}
