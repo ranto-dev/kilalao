@@ -6,7 +6,7 @@ export const reviews = [
   {
     id: 1,
     name: "Anjatiana Andrivilolona",
-    role: "Étudiant",
+    role: "Étudiante",
     avatar: anjatianaAvatar,
     rating: 5,
     comment:
@@ -15,7 +15,7 @@ export const reviews = [
   {
     id: 2,
     name: "Fitiavana Malalaharijaona",
-    role: "Étudiant",
+    role: "Étudiante",
     avatar: fitiavanaAvatar,
     rating: 5,
     comment:
@@ -24,7 +24,7 @@ export const reviews = [
   {
     id: 3,
     name: "Manoro Hasina",
-    role: "Étudiant",
+    role: "Étudiante",
     avatar: manoroAvatar,
     rating: 5,
     comment:
