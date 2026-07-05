@@ -44,7 +44,6 @@ L'application implémente une architecture moderne combinant :
 - [ ] Mode Duel en temps réel (WebSockets)
 - [ ] Système de paliers et de succès débloquables (Badges)
 - [ ] Authentification des joueurs et classement général (Leaderboard)
-- [ ] Mode hors-ligne complet (PWA)
 
 ## 🤝 Contribuer
 
