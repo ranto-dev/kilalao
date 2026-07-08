@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion, type PanInfo } from "framer-motion";
 import {
   FaStar,
@@ -8,207 +8,204 @@ import {
 } from "react-icons/fa6";
 import { reviews } from "../data/testimonials";
 
-export const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+export default function Testimonials() {
+  const cloneCount = 3;
 
-  const totalReviews = reviews.length;
+  // Duplication pour l'effet de boucle infinie
+  const slides = [
+    ...reviews.slice(-cloneCount),
+    ...reviews,
+    ...reviews.slice(0, cloneCount),
+  ];
 
-  // Détection adaptative Mobile vs Desktop compatible SSR / Single Page App
-  const [isMobile, setIsMobile] = useState(false);
+  const [index, setIndex] = useState(cloneCount);
+  const [visible, setVisible] = useState(3);
+  const [transition, setTransition] = useState(true);
+  const [hover, setHover] = useState(false);
 
+  // Gestion responsive synchronisée avec les breakpoints Tailwind
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    const resize = () => {
+      if (window.innerWidth < 640)
+        setVisible(1); // Mobile : 1 carte
+      else if (window.innerWidth < 1024)
+        setVisible(2); // Tablette : 2 cartes
+      else setVisible(3); // Desktop : 3 cartes
     };
 
-    checkMobile(); // Exécution initiale
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    resize();
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
   }, []);
 
-  const maxIndex = isMobile ? totalReviews - 1 : totalReviews - 3;
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
+  const next = () => {
+    setTransition(true);
+    setIndex((prev) => prev + 1);
   };
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
+  const prev = () => {
+    setTransition(true);
+    setIndex((prev) => prev - 1);
   };
 
-  // Effet de défilement automatique (Autoplay)
+  // Autoplay automatique
   useEffect(() => {
-    if (isHovered) return;
+    if (hover) return;
+    const timer = setInterval(next, 4500);
+    return () => clearInterval(timer);
+  }, [hover]);
 
-    const interval = setInterval(() => {
-      handleNext();
-    }, 4500);
+  // Reset de la position sans effet visuel pour la boucle infinie
+  useEffect(() => {
+    if (index === reviews.length + cloneCount) {
+      setTimeout(() => {
+        setTransition(false);
+        setIndex(cloneCount);
+      }, 500); // Correspond à la durée de la transition (0.5s)
+    }
 
-    return () => clearInterval(interval);
-  }, [currentIndex, isHovered, maxIndex]);
+    if (index === 0) {
+      setTimeout(() => {
+        setTransition(false);
+        setIndex(reviews.length);
+      }, 500);
+    }
+  }, [index]);
 
-  // TYPAGE STRICT ICI : Utilisation de PanInfo exporté par framer-motion
-  const handleDragEnd = (
-    _event: MouseEvent | TouchEvent | PointerEvent,
+  const dragEnd = (
+    _e: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo,
   ) => {
-    const swipeThreshold = 50; // Sensibilité du glissement
-    if (info.offset.x < -swipeThreshold) {
-      handleNext();
-    } else if (info.offset.x > swipeThreshold) {
-      handlePrev();
-    }
+    if (info.offset.x < -50) next();
+    if (info.offset.x > 50) prev();
   };
 
-  return (
-    <section
-      id="testimonials"
-      className="relative w-full min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-slate-50/50 px-4 py-24 overflow-hidden select-none"
-    >
-      {/* Fond décoratif premium */}
-      <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:32px_32px] opacity-40 pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-amber-400/5 blur-[120px] rounded-full pointer-events-none" />
+  // Calcul dynamique de l'index du point (dot) actif
+  const activeDotIndex = (index - cloneCount + reviews.length) % reviews.length;
 
-      <div className="relative w-full max-w-7xl mx-auto flex flex-col gap-14">
-        {/* En-tête de section */}
-        <div className="flex flex-col gap-4 text-center items-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-amber-50 to-amber-100/80 border border-amber-200 text-[10px] font-black text-amber-800 w-fit uppercase tracking-widest rounded-full shadow-sm">
-            ⭐️ La communauté s'exprime
+  return (
+    <section className="relative overflow-hidden py-24 bg-gradient-to-b from-white to-slate-50/50 select-none">
+      {/* Fond décoratif discret */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        {/* EN-TÊTE */}
+        <div className="text-center mb-16 flex flex-col items-center gap-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 border border-amber-200/60 text-[10px] font-black text-amber-800 uppercase tracking-widest rounded-full shadow-sm">
+            ⭐️ Témoignages
           </div>
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-none">
-            Ils explorent Madagascar <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 drop-shadow-sm">
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">
+            Ils explorent Madagascar{" "}
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 drop-shadow-sm">
               grâce à Kilalao
             </span>
           </h2>
-          <p className="text-sm md:text-base text-slate-500 font-medium max-w-md leading-relaxed">
-            Découvrez les retours d'expérience de ceux qui relèvent nos défis,
-            apprennent et partagent notre culture.
-          </p>
         </div>
 
-        {/* Zone Carrousel interactive */}
+        {/* CONTENEUR CARROUSEL */}
         <div
-          className="relative w-full px-2 py-4 cursor-grab active:cursor-grabbing"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          ref={containerRef}
+          className="overflow-hidden cursor-grab active:cursor-grabbing py-4"
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
         >
           <motion.div
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.15}
-            onDragEnd={handleDragEnd}
-            animate={{ x: `-${currentIndex * (isMobile ? 100 : 100 / 3)}%` }}
-            transition={{ type: "spring", stiffness: 100, damping: 22 }}
-            className="flex gap-6 w-full"
-            style={{ width: isMobile ? `${totalReviews * 100}%` : "100%" }}
+            onDragEnd={dragEnd}
+            animate={{ x: `-${(index * 100) / visible}%` }}
+            transition={
+              transition
+                ? { duration: 0.5, ease: [0.25, 1, 0.5, 1] }
+                : { duration: 0 }
+            }
+            className="flex"
           >
-            {reviews.map((user, index) => {
-              const isActive =
-                index >= currentIndex &&
-                index < currentIndex + (isMobile ? 1 : 3);
+            {slides.map((user, i) => (
+              <div
+                key={`${user.id}-${i}`}
+                className="flex-none px-3"
+                style={{ width: `${100 / visible}%` }} // Largeur mathématique absolue
+              >
+                <div className="relative h-full min-h-[320px] bg-white border border-slate-100 hover:border-amber-200/80 rounded-3xl p-6 md:p-8 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.02)] hover:shadow-xl hover:shadow-amber-500/[0.02] transition-all duration-300 flex flex-col justify-between group overflow-hidden">
+                  {/* Icône de citation en arrière-plan */}
+                  <FaQuoteLeft className="absolute -top-2 -right-2 text-7xl text-slate-50 group-hover:text-amber-50/50 transition-colors duration-300 pointer-events-none z-0" />
 
-              return (
-                <motion.div
-                  key={user.id}
-                  animate={{
-                    scale: isActive ? 1 : 0.96,
-                    opacity: isActive ? 1 : 0.4,
-                  }}
-                  transition={{ duration: 0.4 }}
-                  className="w-full shrink-0"
-                  style={{
-                    width: isMobile
-                      ? `${100 / totalReviews}%`
-                      : "calc(33.333% - 16px)",
-                  }}
-                >
-                  <div className="relative h-full flex flex-col justify-between p-6 md:p-8 bg-white/80 backdrop-blur-md border border-slate-100 hover:border-amber-300 rounded-3xl shadow-sm hover:shadow-xl hover:shadow-amber-500/[0.05] transition-all duration-300 group overflow-hidden">
-                    {/* Icône de citation géante */}
-                    <FaQuoteLeft className="absolute -top-3 -right-3 text-7xl text-slate-100/70 group-hover:text-amber-100/50 group-hover:scale-110 transition-all duration-500 pointer-events-none z-0" />
+                  <div className="relative z-10">
+                    <div className="flex gap-1 mb-4">
+                      {Array.from({ length: 5 }).map((_, star) => (
+                        <FaStar
+                          key={star}
+                          className={`text-sm ${
+                            star < user.rating
+                              ? "text-amber-500 drop-shadow-sm"
+                              : "text-slate-200"
+                          }`}
+                        />
+                      ))}
+                    </div>
 
-                    <div className="relative z-10 flex flex-col gap-4">
-                      {/* Étoiles */}
-                      <div className="flex items-center gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <FaStar
-                            key={i}
-                            className={`text-sm transition-colors duration-200 ${
-                              i < user.rating
-                                ? "text-amber-500 drop-shadow-[0_1.5px_3px_rgba(245,158,11,0.3)]"
-                                : "text-slate-200"
-                            }`}
-                          />
-                        ))}
-                      </div>
+                    <p className="text-slate-600 text-sm md:text-[15px] font-medium italic leading-relaxed">
+                      "{user.comment}"
+                    </p>
+                  </div>
 
-                      {/* Commentaire */}
-                      <p className="text-sm md:text-[15px] text-slate-600 font-medium leading-relaxed italic">
-                        "{user.comment}"
+                  {/* Profil de l'utilisateur (Point en ligne supprimé) */}
+                  <div className="relative z-10 flex items-center gap-4 border-t border-dashed border-slate-100 pt-5 mt-6">
+                    <img
+                      src={user.avatar}
+                      alt={user.name}
+                      className="w-11 h-11 rounded-full object-cover border border-slate-100"
+                    />
+                    <div className="flex flex-col min-w-0">
+                      <h4 className="font-bold text-sm text-slate-900 truncate">
+                        {user.name}
+                      </h4>
+                      <p className="text-[10px] uppercase font-black text-amber-600 tracking-wider truncate">
+                        {user.role}
                       </p>
                     </div>
-
-                    {/* Profil */}
-                    <div className="relative z-10 flex items-center gap-4 border-t border-dashed border-slate-100 group-hover:border-amber-200/60 mt-6 pt-5 transition-colors duration-300">
-                      <div className="relative shrink-0">
-                        <img
-                          src={user.avatar}
-                          alt={user.name}
-                          className="w-12 h-12 rounded-full object-cover border-2 border-slate-100 group-hover:border-amber-500 shadow-sm transition-all duration-300"
-                        />
-                        <div
-                          className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full"
-                          title="Bêta-testeur vérifié"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <h4 className="font-bold text-sm md:text-base text-slate-900 tracking-tight group-hover:text-amber-900 transition-colors duration-300">
-                          {user.name}
-                        </h4>
-                        <p className="text-[10px] font-black text-amber-600 uppercase tracking-widest">
-                          {user.role}
-                        </p>
-                      </div>
-                    </div>
                   </div>
-                </motion.div>
-              );
-            })}
+                </div>
+              </div>
+            ))}
           </motion.div>
         </div>
 
-        {/* Barre de navigation */}
-        <div className="flex items-center justify-between mt-2 px-2">
-          <div className="flex gap-1.5 items-center">
-            {[...Array(maxIndex + 1)].map((_, index) => (
+        {/* NAVIGATION & DOTS */}
+        <div className="flex justify-between items-center mt-6 px-2">
+          {/* Points de navigation */}
+          <div className="flex gap-2 items-center">
+            {reviews.map((_, i) => (
               <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
+                key={i}
+                onClick={() => {
+                  setTransition(true);
+                  setIndex(i + cloneCount);
+                }}
                 className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                  currentIndex === index
-                    ? "w-8 bg-amber-500"
-                    : "w-2 bg-slate-200 hover:bg-slate-300"
+                  activeDotIndex === i
+                    ? "w-6 bg-amber-500"
+                    : "w-1.5 bg-slate-300 hover:bg-slate-400"
                 }`}
-                aria-label={`Go to slide ${index + 1}`}
+                aria-label={`Aller au témoignage ${i + 1}`}
               />
             ))}
           </div>
 
+          {/* Boutons Flèches */}
           <div className="flex gap-3">
             <button
-              onClick={handlePrev}
-              className="p-3.5 rounded-full border border-slate-200 hover:border-amber-500 text-slate-500 hover:text-amber-600 bg-white shadow-sm active:scale-95 transition-all cursor-pointer"
-              aria-label="Previous testimonials"
+              onClick={prev}
+              className="p-3 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-amber-500 hover:text-amber-600 active:scale-95 transition-all shadow-sm cursor-pointer"
+              aria-label="Précédent"
             >
               <FaChevronLeft size={12} />
             </button>
             <button
-              onClick={handleNext}
-              className="p-3.5 rounded-full border border-slate-200 hover:border-amber-500 text-slate-500 hover:text-amber-600 bg-white shadow-sm active:scale-95 transition-all cursor-pointer"
-              aria-label="Next testimonials"
+              onClick={next}
+              className="p-3 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-amber-500 hover:text-amber-600 active:scale-95 transition-all shadow-sm cursor-pointer"
+              aria-label="Suivant"
             >
               <FaChevronRight size={12} />
             </button>
@@ -217,6 +214,4 @@ export const Testimonials = () => {
       </div>
     </section>
   );
-};
-
-export default Testimonials;
+}
