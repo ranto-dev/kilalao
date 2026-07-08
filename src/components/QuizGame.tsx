@@ -208,7 +208,7 @@ const QuizGame: React.FC<QuizGameProps> = ({
               Quiz terminé !
             </h2>
             <p className="text-sm text-slate-500 font-medium">
-              Merci d'avoir joué à MadaKo'IS ?
+              Merci d'avoir joué à <span className="text-amber-600 font-bold">Kilalao</span>
             </p>
           </div>
 
