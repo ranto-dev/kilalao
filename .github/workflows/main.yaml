@@ -1,0 +1,27 @@
+name: kilalao-workflow Pipeline
+'on':
+  push:
+    branches:
+    - main
+  repository_dispatch:
+    types:
+    - flowops_trigger
+env:
+  NODE_ENV: production
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 📥 Checkout Source
+      uses: actions/checkout@v4
+    - name: 🟢 Setup NodeJS Env
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: npm
+    - name: 📦 Run NPM script
+      run: npm ci
+    - name: 📦 Run NPM script
+      run: npm run lint
+    - name: 📦 Run NPM script
+      run: npm test
